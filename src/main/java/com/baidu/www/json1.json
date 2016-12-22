@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "msg": null,
+  "code": 0,
+  "data": [
+    {
+      "patientCard": "370201032500000001",
+      "cardItems": [
+        {
+          "cardNo": "370201032500000001",
+          "patientCard": "370201032500000001",
+          "platformId": "263000001",
+          "cardType": 2,
+          "cardStatus": 1
+        }
+      ],
+      "cardType": "2",
+      "platformId": "263000001",
+      "patientId": "263000001",
+      "createDate": null,
+      "name": "测试测试",
+      "sex": "女",
+      "nation": null,
+      "birthday": "1989-08-12",
+      "idNo": "130624198908121718",
+      "cardNo": "370201032500000001",
+      "cardStatus": null,
+      "guardianNo": " ",
+      "guardianName": null,
+      "school": null,
+      "address": " ",
+      "phone": "15133456667",
+      "patientType": null,
+      "accountNo": null,
+      "accBalance": null,
+      "seqno": "2016001"
+    }
+  ]
+}
