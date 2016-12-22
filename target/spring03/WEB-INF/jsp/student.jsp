@@ -6,26 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
 <h2>Student Information</h2>
-<form method="POST" action="/spring02/addStudent.do1" modelAttribute="student">
+<form:form method="POST" action="/spring03/addStudent.do1" >
     <table>
         <tr>
-            <td><label path="name">Name</label></td>
-            <td><input path="name"/></td>
+            <td><form:label path="name">Name</form:label></td>
+            <td><form:input path="name" /></td>
         </tr>
         <tr>
-            <td><label path="age">Age</label></td>
-            <td><input path="age"/></td>
+            <td><form:label path="age">Age</form:label></td>
+            <td><form:input path="age" /></td>
         </tr>
         <tr>
-            <td><label path="id">id</label></td>
-            <td><input path="id"/></td>
+            <td><form:label path="id">id</form:label></td>
+            <td><form:input path="id" /></td>
         </tr>
         <tr>
             <td colspan="2">
@@ -33,6 +33,6 @@
             </td>
         </tr>
     </table>
-</form>
+</form:form>
 </body>
 </html>
