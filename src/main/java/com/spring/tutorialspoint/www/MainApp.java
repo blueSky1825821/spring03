@@ -1,5 +1,6 @@
 package com.spring.tutorialspoint.www;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -11,6 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by sky on 2016/12/12.
  */
 public class MainApp {
+    static Logger log = Logger.getLogger(MainApp.class.getName());
 
     //配置初始化和销毁方法
     @Test
@@ -68,11 +70,12 @@ public class MainApp {
     public void test06() {
         ApplicationContext ctx =
                 new AnnotationConfigApplicationContext(HelloWorldConfig.class);
-
+        log.error("Going to create HelloWord Obj");
         HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
 
         helloWorld.setMessage("Hello World!");
         helloWorld.getMessage();
+        log.error("Exiting the program");
     }
 
     //Listening to Context Events
