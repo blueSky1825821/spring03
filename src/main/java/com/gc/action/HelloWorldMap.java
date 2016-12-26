@@ -10,7 +10,6 @@ package com.gc.action;
 import java.util.Date;
 
 import com.sun.javafx.collections.MappingChange.Map;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 /**
  * @ClassName: HelloWorld

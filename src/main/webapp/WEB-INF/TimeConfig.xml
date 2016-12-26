@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注册定时执行实体-->
+    <bean id="mainTask" class="com.TimerTask.www.MainTask"></bean>
+    <!--注册定时器信息-->
+    <bean id="mainJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!--指定要执行的定时任务类-->
+        <property name="targetObject">
+            <ref bean="mainTask"/>
+        </property>
+        <!--指定执行任务的方法名称-->
+        <property name="targetMethod">
+            <value>excute</value>
+        </property>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false" />
+    </bean>
+
+
+    <bean id="timeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <!--申明要运行的实体-->
+        <property name="jobDetail">
+            <ref bean="mainJob"></ref>
+        </property>
+        <!--设置要运行的时间-->
+        <property name="cronExpression">
+            <value>12,23****?</value>
+        </property>
+    </bean>
+    <!--注册定时器-->
+    <bean id="sfb" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <!--注入定时器实体-->
+        <property name="triggers">
+            <list><ref bean="timeTrigger"/></list>
+        </property>
+    </bean>
+
+</beans>
