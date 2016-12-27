@@ -6,14 +6,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/spring-tx.xsd">
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/spring-tx.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
+    <!--<task:annotation-driven/>-->
     <!--use to activate Spring MVC annotation scanning capability which allows to make use of annotations like @Controller and @RequestMapping etc.-->
-    <context:component-scan base-package="com.spring.tutorialspoint.www"/>
+    <!--<context:component-scan base-package="com.spring.tutorialspoint.www"/>-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
@@ -33,6 +34,6 @@
 
     <!--Here <mvc:resources..../> tag is being used to map static pages-->
     <mvc:resources mapping="/html/**" location="/html/"/>
-    <mvc:default-servlet-handler/>
-    <mvc:annotation-driven/>
+<!--    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>-->
 </beans>

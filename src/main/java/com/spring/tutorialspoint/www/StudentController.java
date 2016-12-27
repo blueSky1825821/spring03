@@ -16,12 +16,12 @@ import java.beans.Encoder;
  */
 @Controller
 public class StudentController {
-    @RequestMapping(value = "/student.do1", method = RequestMethod.GET)
+    @RequestMapping(value = "/student.do1", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView student() {
         return new ModelAndView("student", "command", new Student());
     }
 
-    @RequestMapping(value = "/addStudent.do1", method = RequestMethod.POST)
+    @RequestMapping(value = "/addStudent.do1", method = {RequestMethod.GET, RequestMethod.POST})
     public String addStudent(@ModelAttribute("student") Student student,
                              ModelMap model) {
         if (student.getName().length() < 2) {

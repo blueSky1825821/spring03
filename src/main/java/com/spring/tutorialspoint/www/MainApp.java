@@ -1,5 +1,6 @@
 package com.spring.tutorialspoint.www;
 
+import com.TimerTask.www.MainTask;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +14,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MainApp {
     static Logger log = Logger.getLogger(MainApp.class.getName());
+
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        MainTask mainTask = (MainTask) context.getBean("mainTask");
+        mainTask.excute();
+    }
 
     //配置初始化和销毁方法
     @Test
@@ -96,5 +103,12 @@ public class MainApp {
         CustomEventPublisher customEventPublisher = (CustomEventPublisher) context.getBean("customEventPublisher");
         customEventPublisher.publish();
         customEventPublisher.publish();
+    }
+    
+    @Test
+    public void test09() {
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        MainTask mainTask = (MainTask) context.getBean("mainTask");
+        mainTask.excute();
     }
 }

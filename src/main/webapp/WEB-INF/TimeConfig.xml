@@ -20,22 +20,22 @@
     </bean>
 
 
-    <bean id="timeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-        <!--申明要运行的实体-->
+<!--    <bean id="timeTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        &lt;!&ndash;申明要运行的实体&ndash;&gt;
         <property name="jobDetail">
             <ref bean="mainJob"></ref>
         </property>
-        <!--设置要运行的时间-->
+        &lt;!&ndash;设置要运行的时间&ndash;&gt;
         <property name="cronExpression">
             <value>12,23****?</value>
         </property>
     </bean>
-    <!--注册定时器-->
+    &lt;!&ndash;注册定时器&ndash;&gt;
     <bean id="sfb" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <!--注入定时器实体-->
+        &lt;!&ndash;注入定时器实体&ndash;&gt;
         <property name="triggers">
             <list><ref bean="timeTrigger"/></list>
         </property>
-    </bean>
+    </bean>-->
 
 </beans>

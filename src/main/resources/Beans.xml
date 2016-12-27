@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--配置初始化和销毁方法-->
     <bean id="helloWorld" class="com.spring.tutorialspoint.www.HelloWorld" init-method="init" destroy-method="destroy">
@@ -81,5 +82,9 @@
     <!--before and after initialization-->
     <bean id="initHelloWorld" class="com.spring.tutorialspoint.www.InitHelloWorld"/>
 
-
+    <bean id="mainTask" class="com.TimerTask.www.MainTask"/>
+    <!--设置动作启用定时任务-->
+    <task:annotation-driven />
+    <!--use to activate Spring MVC annotation scanning capability which allows to make use of annotations like @Controller and @RequestMapping etc.-->
+    <context:component-scan base-package="com.*"/>
 </beans>
