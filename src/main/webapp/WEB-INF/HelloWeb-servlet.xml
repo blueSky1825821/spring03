@@ -12,15 +12,19 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/spring-tx.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
+    <!--Here <mvc:resources..../> tag is being used to map static pages-->
+    <mvc:resources mapping="/html/**" location="/html/"/>
+    <!--注解-->
+    <mvc:annotation-driven/>
     <!--<task:annotation-driven/>-->
     <!--use to activate Spring MVC annotation scanning capability which allows to make use of annotations like @Controller and @RequestMapping etc.-->
-    <!--<context:component-scan base-package="com.spring.tutorialspoint.www"/>-->
+    <context:component-scan base-package="com.spring.tutorialspoint.www"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    
+
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
@@ -32,8 +36,4 @@
         <property name="defaultErrorView" value="error" />
     </bean>
 
-    <!--Here <mvc:resources..../> tag is being used to map static pages-->
-    <mvc:resources mapping="/html/**" location="/html/"/>
-<!--    <mvc:default-servlet-handler/>
-    <mvc:annotation-driven/>-->
 </beans>

@@ -86,5 +86,5 @@
     <!--设置动作启用定时任务-->
     <task:annotation-driven />
     <!--use to activate Spring MVC annotation scanning capability which allows to make use of annotations like @Controller and @RequestMapping etc.-->
-    <context:component-scan base-package="com.*"/>
+    <!--<context:component-scan base-package="com.*"/>-->
 </beans>
