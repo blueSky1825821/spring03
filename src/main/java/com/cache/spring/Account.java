@@ -6,11 +6,17 @@ package com.cache.spring;
 public class Account {
     private int id;
     private String name;
+    private String password;
 
     public Account(String name) {
         this.name = name;
     }
-
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
     public int getId() {
         return id;
     }
