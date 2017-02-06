@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/mytest" />
+        <property name="username" value="root" />
+        <property name="password" value="yuantu123" />
+    </bean>
+
+    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocation">  <!-- name 为configLocation或s  不可为其他 -->
+            <value>classpath:config/datasource/serial-sqlmap-config.xml</value> <!-- 不区分大小写，路径前可加'/' -->
+        </property>
+
+        <!-- dataSource不是必需 -->
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+    </bean>
+
+    <bean id="personDao" class="com.spring.inaction.sql.baidu.test01.dao.impl.PersonDaoImpl">
+        <!-- dataSource不是必需 -->
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+
+        <!-- sqlMapClient必需 -->
+        <property name="sqlMapClient">
+            <ref bean="sqlMapClient"/>
+        </property>
+    </bean>
+
+    <!-- transactionManager不是必需  -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+    </bean>
+
+</beans>
