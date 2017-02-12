@@ -10,6 +10,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy     //启用AspectJ自动代理
 @ComponentScan
-public class HelloWorldConfig {
+public class HelloWorldConfig1 {
 
 }

@@ -1,41 +1,68 @@
 {
-  "success": true,
-  "msg": null,
-  "code": -9223372036854775808,
-  "data": [
+  "date": [
     {
-      "tradeTime": "17:57:00",
-      "itemNo": null,
-      "productCode": null,
-      "itemName": "冰敷治疗",
-      "deptCode": null,
-      "deptName": "WSK-外三科",
-      "itemSpecs": null,
-      "itemLiquid": null,
-      "itemUnits": "部位",
-      "itemQty": "1",
-      "itemPrice": 1700,
-      "cost": 1700,
-      "visitid": 0,
-      "extend": null
+      "tradeTime": "2017-02-06",
+      "billType": "药品",
+      "sum": 4000,
+      "print": 0,
+      "billItem": [
+        {
+          "tradeTime": "17:57:00",
+          "itemNo": null,
+          "productCode": null,
+          "itemName": "冰敷治疗",
+          "deptCode": null,
+          "deptName": "WSK-外三科",
+          "itemSpecs": null,
+          "itemLiquid": null,
+          "itemUnits": "部位",
+          "itemQty": "1",
+          "itemPrice": 1700,
+          "cost": 1700,
+          "visitid": 0,
+          "extend": null
+        },
+        {
+          "tradeTime": "00:05:00",
+          "itemNo": null,
+          "productCode": null,
+          "itemName": "住院诊察费",
+          "deptCode": null,
+          "deptName": "WSK-外三科",
+          "itemSpecs": null,
+          "itemLiquid": null,
+          "itemUnits": "日",
+          "itemQty": "1",
+          "itemPrice": 2300,
+          "cost": 2300,
+          "visitid": 0,
+          "extend": null
+        }
+      ]
     },
     {
-      "tradeTime": "00:05:00",
-      "itemNo": null,
-      "productCode": null,
-      "itemName": "住院诊察费",
-      "deptCode": null,
-      "deptName": "WSK-外三科",
-      "itemSpecs": null,
-      "itemLiquid": null,
-      "itemUnits": "日",
-      "itemQty": "1",
-      "itemPrice": 2300,
-      "cost": 2300,
-      "visitid": 0,
-      "extend": null
+      "tradeTime": "2017-02-06",
+      "billType": "药品",
+      "sum": 4000,
+      "print": 0,
+      "billItem": [
+        {
+          "tradeTime": "17:57:00",
+          "itemNo": null,
+          "productCode": null,
+          "itemName": "冰敷治疗",
+          "deptCode": null,
+          "deptName": "WSK-外三科",
+          "itemSpecs": null,
+          "itemLiquid": null,
+          "itemUnits": "部位",
+          "itemQty": "1",
+          "itemPrice": 1700,
+          "cost": 1700,
+          "visitid": 0,
+          "extend": null
+        }
+      ]
     }
-  ],
-  "startTime": 1485142497705,
-  "timeConsum": 0
+  ]
 }

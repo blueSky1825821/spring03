@@ -10,14 +10,7 @@
 
 <html>
 <head>
-    <title>问卷调查</title>
-    <%--    <style>
-            body{
-                background-image: url(/photos/christmas.jpg);
-                background-repeat: repeat-x;
-            }
-        </style>--%>
-
+    <title>用户登陆</title>
 </head>
 
 <body>
@@ -25,7 +18,7 @@
     <img src="photos/3.jpg" height="100%" width="100%"/>
 </div>
 
-<% String url = request.getScheme() + "://" + request.getServerName() + request.getServletPath();%>
+<% String url = request.getScheme()+"://"+ request.getServerName()+request.getServletPath();%>
 
 <br><br><br>
 <center>
@@ -34,7 +27,7 @@
     </audio>
 
     <h2>Happy Fairy Information</h2>
-    <form:form method="POST" action="registerStudent.do1">
+    <form:form method="POST" action="addStudent.do2">
         <table>
             <tr>
                 <td><form:label path="name">Name</form:label></td>
@@ -49,14 +42,8 @@
                 <td><form:input path="hobby"/></td>
             </tr>
             <tr>
-                <td><form:label path="password">password</form:label></td>
-                <td><form:input path="password"/></td>
-            </tr>
-            <tr>
                 <td colspan="2">
-                    <input type="submit" value="Submit"/>
-                    <input type="button" class="button button-primary" value="注册"
-                           onclick="window.open('${pageContext.request.contextPath}/login.jsp')">
+                    <input type="submit" value="注册"/>
                 </td>
             </tr>
         </table>

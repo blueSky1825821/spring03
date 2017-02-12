@@ -1,4 +1,4 @@
-package com.spring.inaction.sql.config;
+package com.spring.tutorialspoint.www.sql.config;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 

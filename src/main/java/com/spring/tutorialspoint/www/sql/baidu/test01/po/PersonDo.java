@@ -1,4 +1,4 @@
-package com.spring.inaction.sql.baidu.test01.po;
+package com.spring.tutorialspoint.www.sql.baidu.test01.po;
 
 import java.io.Serializable;
 
@@ -7,19 +7,27 @@ import java.io.Serializable;
  */
 public class PersonDo implements Serializable{
     private static final long serialVersionUID = 1L;
-    private int id;
+    private int idNo;
     private String name;
     private int sex;
     private String hobby;
 
-    public PersonDo() {
-    }
-
-    public PersonDo(int id, String name, int sex, String hobby) {
-        this.id = id;
+    public PersonDo(int idNo, String name, int sex, String hobby) {
+        this.idNo = idNo;
         this.name = name;
         this.sex = sex;
         this.hobby = hobby;
+    }
+
+    public PersonDo() {
+    }
+
+    public int getIdNo() {
+        return idNo;
+    }
+
+    public void setIdNo(int idNo) {
+        this.idNo = idNo;
     }
 
     public String getHobby() {
@@ -31,11 +39,11 @@ public class PersonDo implements Serializable{
     }
 
     public int getId() {
-        return id;
+        return idNo;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idNo = id;
     }
 
     public String getName() {
@@ -52,5 +60,15 @@ public class PersonDo implements Serializable{
 
     public void setSex(int sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonDo{" +
+                "idNo=" + idNo +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", hobby='" + hobby + '\'' +
+                '}';
     }
 }

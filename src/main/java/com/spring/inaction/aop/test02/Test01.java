@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //测试时自动创建Spring应用上下文
 @RunWith(SpringJUnit4ClassRunner.class)
 //加载bean
-@ContextConfiguration(classes = HelloWorldConfig.class)
+@ContextConfiguration(classes = HelloWorldConfig1.class)
 public class Test01 {
     @Autowired HelloWorld helloWorld;
 
