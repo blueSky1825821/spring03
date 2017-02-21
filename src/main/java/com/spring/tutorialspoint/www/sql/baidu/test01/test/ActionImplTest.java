@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by sky on 2017/1/23.
  */
-public class ActionImplTest {
+public class ActionImplTest extends ImplTest{
     @Autowired
     PersonDao personDao;
 

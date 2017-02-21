@@ -16,7 +16,7 @@ public class PersonDaoImpl extends SqlMapClientDaoSupport implements PersonDao, 
     @Override
     public boolean insertPerson(PersonDo personDo) {
         try {
-            getSqlMapClientTemplate().insert("insertPerson", personDo);
+            getSqlMapClientTemplate().insert(getClass().getName() + ".insertPerson", personDo);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -27,7 +27,7 @@ public class PersonDaoImpl extends SqlMapClientDaoSupport implements PersonDao, 
     @Override
     public PersonDo queryPersonByName(String name) {
         try {
-            return (PersonDo) getSqlMapClientTemplate().queryForObject("queryPersonByName", name);
+            return (PersonDo) getSqlMapClientTemplate().queryForObject(getClass().getName() + ".queryPersonByName", name);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class PersonDaoImpl extends SqlMapClientDaoSupport implements PersonDao, 
     @Override
     public List<PersonDo> queryPersonList(PersonDo personDo) {
         try {
-            return (List<PersonDo>) getSqlMapClientTemplate().queryForList("queryPersonList", personDo);
+            return (List<PersonDo>) getSqlMapClientTemplate().queryForList(getClass().getName() + ".queryPersonList", personDo);
         } catch (Exception e) {
             e.printStackTrace();
         }

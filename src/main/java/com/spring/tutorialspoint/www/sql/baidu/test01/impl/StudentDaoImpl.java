@@ -13,7 +13,7 @@ public class StudentDaoImpl extends SqlMapClientDaoSupport implements StudentDao
     @Override
     public Student getStudent(String name) {
         try{
-            return (Student)getSqlMapClientTemplate().queryForObject("queryStudentById", name);
+            return (Student)getSqlMapClientTemplate().queryForObject(getClass().getName() + ".queryStudentById", name);
         } catch(Exception e) {
             e.printStackTrace();
         }

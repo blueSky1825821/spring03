@@ -9,7 +9,7 @@
     <!-- spring mvc配置 begin -->
     <!--<context-param>-->
         <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>classpath*:datasource.xml,WEB-INF/applicationContext.xml,classpath*:config/**/*.xml</param-value>-->
+        <!--<param-value>classpath*:datasource.xml,WEB-INF/applicationContext.xml</param-value>-->
     <!--</context-param>-->
 
     <!--<listener>-->

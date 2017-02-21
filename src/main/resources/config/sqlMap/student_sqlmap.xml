@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.spring.tutorialspoint.www.sql.baidu.test01.impl.StudentDaoImpl">
+    <!--namespace="com.spring.tutorialspoint.www.sql.impl.StudentDaoImpl"-->
+    <!-- 为Person类设置一个别名 -->
+    <typeAlias alias="student" type="com.spring.tutorialspoint.www.sql.baidu.test01.po.Student"/>
+
+    <!-- 配置表和实体Bean之间的映射关系 -->
+    <resultMap id="studentMap" class="com.spring.tutorialspoint.www.sql.baidu.test01.po.Student">
+        <result property="name" column="name"/>
+        <result property="psw" column="psw"/>
+        <result property="enabled" column="enabled"/>
+    </resultMap>
+
+    <insert id="insertStudent" parameterClass="student">
+        <![CDATA[
+
+            insert into student values(#name#,#psw#,#enabled#);
+
+        ]]>
+    </insert>
+
+    <!-- 查看特定用户 -->
+    <select id="queryStudentById" parameterClass="string" resultMap="studentMap">
+        <![CDATA[
+
+            SELECT * FROM STUDENT WHERE NAME=#name#
+
+        ]]>
+    </select>
+
+    <!-- 查看所有的用户 -->
+    <select id="queryAllStudents" resultMap="studentMap">
+        <![CDATA[
+
+            SELECT * FROM STUDENT
+
+        ]]>
+    </select>
+</sqlMap>

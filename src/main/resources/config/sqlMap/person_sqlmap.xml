@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.spring.tutorialspoint.www.sql.baidu.test01.impl.PersonDaoImpl">
+    <!-- 通过typeAlias使得我们在下面使用PersonDo实体类的时候不需要写包名 -->
+    <typeAlias alias="person" type="com.spring.tutorialspoint.www.sql.baidu.test01.po.PersonDo"></typeAlias>
+
+    <resultMap id="personResultMap" class="com.spring.tutorialspoint.www.sql.baidu.test01.po.PersonDo">
+        <result column="id" property="id"></result>
+        <result column="id_no" property="idNo"></result>
+        <result column="sex" property="sex"></result>
+        <result column="name" property="name"></result>
+        <result column="hobby" property="hobby"></result>
+    </resultMap>
+
+    <sql id="baseColumn">
+        id,
+        id_no,
+        sex,
+        name,
+        hobby
+    </sql>
+
+    <insert id="insertPerson" parameterClass="person">
+        insert
+        into person
+        (
+        id_no,
+        name,
+        sex,
+        hobby
+        )
+        values (
+        #idNo#,
+        #name#,
+        #sex#,
+        #hobby#
+        )
+        <selectKey resultClass="int" keyProperty="id">
+            select LAST_INSERT_ID() as id
+        </selectKey>
+    </insert>
+
+    <select id="queryPersonByName" parameterClass="string" resultMap="personResultMap">
+        <![CDATA[
+            SELECT * FROM person WHERE NAME=#name#
+        ]]>
+    </select>
+
+    <select id="queryPersonList" resultMap="personResultMap">
+        SELECT
+        <include refid="baseColumn"/>
+        FROM person
+        <dynamic prepend="where">
+            <isNotEqual property="idNo" compareValue="0">
+                id_no = #idNo#
+            </isNotEqual>
+            <isNotNull property="name" prepend=" and ">
+                name = #name#
+            </isNotNull>
+            <isNotNull property="sex" prepend=" and ">
+                sex = #sex#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+</sqlMap>
