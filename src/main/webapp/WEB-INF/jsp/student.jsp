@@ -41,21 +41,29 @@
                 <td><form:input path="name"/></td>
             </tr>
             <tr>
+                <td><form:label path="password">password</form:label></td>
+                <td><form:input path="password"/></td>
+            </tr>
+            <tr>
                 <td><form:label path="age">Age</form:label></td>
                 <td><form:input path="age"/></td>
+            </tr>
+            <tr>
+                <td><form:label path="sex">sex</form:label></td>
+                <td><form:input path="sex"/></td>
+            </tr>
+            <tr>
+                <td><form:label path="phone">phone</form:label></td>
+                <td><form:input path="phone"/></td>
             </tr>
             <tr>
                 <td><form:label path="hobby">hobby</form:label></td>
                 <td><form:input path="hobby"/></td>
             </tr>
             <tr>
-                <td><form:label path="password">password</form:label></td>
-                <td><form:input path="password"/></td>
-            </tr>
-            <tr>
                 <td colspan="2">
-                    <input type="submit" value="Submit"/>
-                    <input type="button" class="button button-primary" value="注册"
+                    <input type="submit" value="注册"/>
+                    <input type="button" class="button button-primary" value="登陆"
                            onclick="window.open('${pageContext.request.contextPath}/login.jsp')">
                 </td>
             </tr>

@@ -18,7 +18,7 @@
     <img src="photos/3.jpg" height="100%" width="100%"/>
 </div>
 
-<% String url = request.getScheme()+"://"+ request.getServerName()+request.getServletPath();%>
+<% String url = request.getScheme() + "://" + request.getServerName() + request.getServletPath();%>
 
 <br><br><br>
 <center>
@@ -27,23 +27,19 @@
     </audio>
 
     <h2>Happy Fairy Information</h2>
-    <form:form method="POST" action="addStudent.do2">
+    <form:form method="POST" action="loginStudent.do1">
         <table>
             <tr>
                 <td><form:label path="name">Name</form:label></td>
                 <td><form:input path="name"/></td>
             </tr>
             <tr>
-                <td><form:label path="age">Age</form:label></td>
-                <td><form:input path="age"/></td>
-            </tr>
-            <tr>
-                <td><form:label path="hobby">hobby</form:label></td>
-                <td><form:input path="hobby"/></td>
+                <td><form:label path="password">password</form:label></td>
+                <td><form:input path="password"/></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="注册"/>
+                    <input type="submit" value="登陆"/>
                 </td>
             </tr>
         </table>

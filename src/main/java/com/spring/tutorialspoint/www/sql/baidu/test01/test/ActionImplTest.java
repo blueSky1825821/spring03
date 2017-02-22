@@ -23,6 +23,9 @@ public class ActionImplTest extends ImplTest{
     @Autowired
     PersonDao personDao;
 
+    @Autowired
+    StudentDao studentDao;
+
 
     //查询全部
     @Test
@@ -98,13 +101,25 @@ public class ActionImplTest extends ImplTest{
         if (null != studentDao) {
             Student student = studentDao.getStudent("ph");
             if (null != student) {
-                System.out.println("== 学生名字：" + student.getName() + ",学生密码：" + student.getPsw());
+                System.out.println("== 学生名字：" + student.getName() + ",学生密码：" + student.getPassword());
             } else {
                 System.out.println("== 没有该学生信息！");
             }
         } else {
             System.out.println("== StudentDao注入失败！");
         }
+    }
+
+    @Test
+    public void testInsertStudent() {
+        Student student = new Student();
+        student.setName("zhangsan");
+        student.setAge("22");
+        student.setPhone("18258211285");
+        student.setSex("1");
+        student.setHobby("study");
+        Boolean p = studentDao.insertStudent(student);
+        System.out.println(p.toString());
     }
 
     @Test

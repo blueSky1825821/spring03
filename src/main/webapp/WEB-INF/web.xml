@@ -7,14 +7,14 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <!-- spring mvc配置 begin -->
-    <!--<context-param>-->
-        <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>classpath*:datasource.xml,WEB-INF/applicationContext.xml</param-value>-->
-    <!--</context-param>-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:datasource.xml</param-value>
+    </context-param>
 
     <!--注意多个servlet的顺序-->
     <servlet>
@@ -69,7 +69,6 @@
         <servlet-name>HelloWeb</servlet-name>
         <url-pattern>*.do1</url-pattern>
     </servlet-mapping>
-
 
 
     <welcome-file-list>

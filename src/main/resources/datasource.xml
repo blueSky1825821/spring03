@@ -21,7 +21,7 @@
     <!--sql map -->
     <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
         <property name="configLocation">  <!-- name 为configLocation或s  不可为其他 -->
-            <value>config/datasource/serial-sqlmap-config.xml</value> <!-- 不区分大小写，路径前可加'/' -->
+            <value>classpath:/config/datasource/serial-sqlmap-config.xml</value> <!-- 不区分大小写，路径前可加'/' -->
         </property>
 
         <!-- dataSource不是必需 -->
