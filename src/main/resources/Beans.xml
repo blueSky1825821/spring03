@@ -5,27 +5,27 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--配置初始化和销毁方法-->
-    <bean id="helloWorld" class="com.spring.tutorialspoint.www.HelloWorld" init-method="init" destroy-method="destroy">
+    <bean id="helloWorld" class="com.spring.tutorialspoint.other.HelloWorld" init-method="init" destroy-method="destroy">
         <property name="message" value="Hello World!"/>
         <property name="message1" value="Hello World! message1"/>
         <property name="message2" value="Hello Second World! message2"/>
     </bean>
 
     <!--子类包含父类的所有参数以及方法-->
-    <bean id="helloIndia" class="com.spring.tutorialspoint.www.HelloIndia" parent="helloWorld">
+    <bean id="helloIndia" class="com.spring.tutorialspoint.other.HelloIndia" parent="helloWorld">
         <property name="message1" value="Hello India!"/>
         <property name="message3" value="Namaste India!"/>
     </bean>
 
     <!-- Definition for textEditor bean using inner bean -->
-    <bean id="textEditor" class="com.spring.tutorialspoint.www.TextEditor">
+    <bean id="textEditor" class="com.spring.tutorialspoint.event.TextEditor">
         <property name="spellChecker">
-            <bean id="spellChecker" class="com.spring.tutorialspoint.www.SpellChecker"/>
+            <bean id="spellChecker" class="com.spring.tutorialspoint.event.SpellChecker"/>
         </property>
     </bean>
 
     <!-- Definition for javaCollection -->
-    <bean id="javaCollection" class="com.spring.tutorialspoint.www.JavaCollection">
+    <bean id="javaCollection" class="com.spring.tutorialspoint.other.JavaCollection">
 
         <!-- results in a setAddressList(java.util.List) call -->
         <property name="addressList">
@@ -68,11 +68,11 @@
         </property>
     </bean>
 
-    <bean id="cStartEventHandler" class="com.spring.tutorialspoint.www.CStartEventHandler"></bean>
-    <bean id="cStopEventHandler" class="com.spring.tutorialspoint.www.CStopEventHandler"></bean>
+    <bean id="cStartEventHandler" class="com.spring.tutorialspoint.event.CStartEventHandler"></bean>
+    <bean id="cStopEventHandler" class="com.spring.tutorialspoint.event.CStopEventHandler"></bean>
 
-    <bean id="customEventHandler" class="com.spring.tutorialspoint.www.CustomEventHandler"/>
-    <bean id="customEventPublisher" class="com.spring.tutorialspoint.www.CustomEventPublisher"/>
+    <bean id="customEventHandler" class="com.spring.tutorialspoint.event.CustomEventHandler"/>
+    <bean id="customEventPublisher" class="com.spring.tutorialspoint.event.CustomEventPublisher"/>
     <!--注入null-->
     <!--
         <bean id="..." class="exampleBean">
@@ -80,7 +80,7 @@
         </bean>
         -->
     <!--before and after initialization-->
-    <bean id="initHelloWorld" class="com.spring.tutorialspoint.www.InitHelloWorld"/>
+    <bean id="initHelloWorld" class="com.spring.tutorialspoint.other.InitHelloWorld"/>
 
     <bean id="mainTask" class="com.TimerTask.www.MainTask"/>
     <!--设置动作启用定时任务-->

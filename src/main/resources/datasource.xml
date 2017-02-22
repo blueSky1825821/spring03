@@ -30,12 +30,12 @@
         </property>
     </bean>
 
-    <bean id="personDAO" class="com.spring.tutorialspoint.www.sql.baidu.test01.impl.PersonDaoImpl">
+    <bean id="personDAO" class="com.spring.tutorialspoint.impl.PersonDaoImpl">
         <!-- sqlMapClient必需 -->
         <property name="sqlMapClient" ref="sqlMapClient"></property>
     </bean>
 
-    <bean id="studentDao" class="com.spring.tutorialspoint.www.sql.baidu.test01.impl.StudentDaoImpl">
+    <bean id="studentDao" class="com.spring.tutorialspoint.impl.StudentDaoImpl">
         <property name="sqlMapClient" ref="sqlMapClient"></property>
     </bean>
 

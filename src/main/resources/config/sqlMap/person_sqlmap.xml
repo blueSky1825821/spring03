@@ -2,11 +2,11 @@
 <!DOCTYPE sqlMap
         PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
         "http://ibatis.apache.org/dtd/sql-map-2.dtd">
-<sqlMap namespace="com.spring.tutorialspoint.www.sql.baidu.test01.impl.PersonDaoImpl">
+<sqlMap namespace="com.spring.tutorialspoint.impl.PersonDaoImpl">
     <!-- 通过typeAlias使得我们在下面使用PersonDo实体类的时候不需要写包名 -->
-    <typeAlias alias="person" type="com.spring.tutorialspoint.www.sql.baidu.test01.po.PersonDo"></typeAlias>
+    <typeAlias alias="person" type="com.spring.tutorialspoint.po.PersonDo"></typeAlias>
 
-    <resultMap id="personResultMap" class="com.spring.tutorialspoint.www.sql.baidu.test01.po.PersonDo">
+    <resultMap id="personResultMap" class="com.spring.tutorialspoint.po.PersonDo">
         <result column="id" property="id"></result>
         <result column="id_no" property="idNo"></result>
         <result column="sex" property="sex"></result>

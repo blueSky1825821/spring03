@@ -6,5 +6,5 @@
     <settings cacheModelsEnabled="false" useStatementNamespaces="true"
               enhancementEnabled="false" lazyLoadingEnabled="false"/>
     <sqlMap resource="config/sqlMap/person_sqlmap.xml"></sqlMap>
-    <sqlMap resource="config/sqlMap/student_sqlmap.xml"></sqlMap>
+    <sqlMap resource="config/sqlMap/user_account_sqlmap.xml"></sqlMap>
 </sqlMapConfig>
