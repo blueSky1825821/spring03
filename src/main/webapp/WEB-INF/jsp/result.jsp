@@ -9,7 +9,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>问卷调查</title>
+    <title>教工系统</title>
 </head>
 <body>
 <div id="Layer1" style="position:absolute; width:100%; height:100%; z-index:-1">
@@ -37,7 +37,8 @@
     </table>
     <br>
     <br>
-    <h2>${name}，你的兴趣其实是为你做这个的汉子，他为你花了很长的时间，希望你圣诞快乐!</h2>
+    <h2>${name}，您好，欢迎您登陆教工系统！</h2><br>
+    <h2>希望您每天能开开心心的！！!</h2>
     <br>
     <h1><font color="red"> Merry Christmas</font></h1>
 </center>

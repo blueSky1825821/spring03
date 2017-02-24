@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>用户登陆</title>
+    <title>教师登陆</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
     </audio>
 
     <h2>Happy Fairy Information</h2>
-    <form:form method="POST" action="loginStudent.do1">
+    <form:form method="POST" action="loginRetStudent.do1">
         <table>
             <tr>
                 <td><form:label path="name">Name</form:label></td>

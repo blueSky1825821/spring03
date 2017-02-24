@@ -40,7 +40,7 @@ public class StudentController {
         return new ModelAndView("student", "command", new Student());
     }
 
-    @RequestMapping(value = "/registerStudent.do1", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/registerRetStudent.do1", method = {RequestMethod.GET, RequestMethod.POST})
     public String register(@ModelAttribute("student") Student student,
                            ModelMap model) {
         if (student.getName().length() < 2) {
@@ -70,7 +70,12 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/loginStudent.do1", method = {RequestMethod.GET, RequestMethod.POST})
-    public String login(@ModelAttribute("student") Student student,
+    public ModelAndView loginStudent() {
+        return new ModelAndView("student1", "command", new Student());
+    }
+
+    @RequestMapping(value = "/loginRetStudent.do1", method = {RequestMethod.GET, RequestMethod.POST})
+    public String login(@ModelAttribute("student1") Student student,
                         ModelMap model) {
         if (student.getName() == null || student.getPassword() == null) {
             throw new SpringException("用户名密码必须填写");

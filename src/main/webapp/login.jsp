@@ -10,14 +10,7 @@
 
 <html>
 <head>
-    <title>教工系统</title>
-    <%--    <style>
-            body{
-                background-image: url(/photos/christmas.jpg);
-                background-repeat: repeat-x;
-            }
-        </style>--%>
-
+    <title>教师登陆</title>
 </head>
 
 <body>
@@ -34,7 +27,7 @@
     </audio>
 
     <h2>Happy Fairy Information</h2>
-    <form:form method="POST" action="registerRetStudent.do1">
+    <form:form method="POST" modelAttribute="student1" action="loginRetStudent.do1">
         <table>
             <tr>
                 <td><form:label path="name">Name</form:label></td>
@@ -45,26 +38,8 @@
                 <td><form:input path="password"/></td>
             </tr>
             <tr>
-                <td><form:label path="age">Age</form:label></td>
-                <td><form:input path="age"/></td>
-            </tr>
-            <tr>
-                <td><form:label path="sex">sex</form:label></td>
-                <td><form:input path="sex"/></td>
-            </tr>
-            <tr>
-                <td><form:label path="phone">phone</form:label></td>
-                <td><form:input path="phone"/></td>
-            </tr>
-            <tr>
-                <td><form:label path="hobby">hobby</form:label></td>
-                <td><form:input path="hobby"/></td>
-            </tr>
-            <tr>
                 <td colspan="2">
-                    <input type="submit" value="注册"/>
-                    <input type="button" class="button button-primary" value="登陆"
-                           onclick="window.open('${pageContext.request.contextPath}/loginStudent.do1')">
+                    <input type="submit" value="登陆"/>
                 </td>
             </tr>
         </table>

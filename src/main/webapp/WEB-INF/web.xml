@@ -25,7 +25,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/dispatcherServlet-servlet.xml</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>3</load-on-startup>
     </servlet>
 
     <!--设置编码开始-->
@@ -53,7 +53,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <!--初始化参数-->
         <init-param>
-            <param-name>contextConfigLocation1</param-name>
+            <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/HelloWeb-servlet.xml</param-value>
         </init-param>
         <load-on-startup>2</load-on-startup>
