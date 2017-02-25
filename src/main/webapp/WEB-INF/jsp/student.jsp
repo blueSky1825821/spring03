@@ -61,6 +61,10 @@
                 <td><form:input path="hobby"/></td>
             </tr>
             <tr>
+                <td><form:label path="url">照片URL</form:label></td>
+                <td><form:input path="url"/></td>
+            </tr>
+            <tr>
                 <td colspan="2">
                     <input type="submit" value="注册"/>
                     <input type="button" class="button button-primary" value="登陆"

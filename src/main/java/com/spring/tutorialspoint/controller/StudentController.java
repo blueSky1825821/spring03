@@ -5,15 +5,22 @@ import com.spring.tutorialspoint.dao.StudentDao;
 import com.spring.tutorialspoint.exception.SpringException;
 import com.spring.tutorialspoint.po.PersonDo;
 import com.spring.tutorialspoint.po.Student;
+import com.utils.FileUtilsUp;
+import com.utils.StringUtilsUp;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,6 +33,10 @@ public class StudentController {
 
     @Autowired
     private StudentDao studentDao;
+
+    //通过Spring的autowired注解获取spring默认配置的request
+    @Autowired
+    private HttpServletRequest httpServletRequest;
 
     static Logger log = Logger.getLogger(StudentController.class.getName());
 
@@ -58,11 +69,15 @@ public class StudentController {
         } else {
             model.addAttribute("hobby", student.getHobby());
         }
+        if (student.getPassword().length() < 6) {
+            throw new SpringException("Given password is too short, at least 6！");
+        } else {
+            model.addAttribute("password", student.getPassword());
+        }
         model.addAttribute("phone", student.getPhone());
         model.addAttribute("sex", student.getSex());
-        model.addAttribute("password", student.getPassword());
         if (studentDao.insertStudent(student)) {
-            log.error("注册成功！" + student);
+            model.addAttribute("message", "注册成功！");
             return "result";
         } else {
             throw new SpringException("注册失败，请重新注册！");
@@ -77,7 +92,7 @@ public class StudentController {
     @RequestMapping(value = "/loginRetStudent.do1", method = {RequestMethod.GET, RequestMethod.POST})
     public String login(@ModelAttribute("student1") Student student,
                         ModelMap model) {
-        if (student.getName() == null || student.getPassword() == null) {
+        if (StringUtilsUp.isBlank(student.getName(), student.getPassword())) {
             throw new SpringException("用户名密码必须填写");
         }
         List<Student> list = studentDao.queryStudentList(student);
@@ -89,7 +104,9 @@ public class StudentController {
         model.addAttribute("age", student1.getAge());
         model.addAttribute("phone", student1.getPhone());
         model.addAttribute("hobby", student1.getHobby());
+        model.addAttribute("url", student1.getUrl());
 
         return "result";
     }
+
 }

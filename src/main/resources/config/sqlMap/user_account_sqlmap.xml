@@ -15,6 +15,7 @@
         <result column="phone" property="phone"></result>
         <result column="hobby" property="hobby"></result>
         <result column="pwd" property="password"></result>
+        <result column="url" property="url"></result>
     </resultMap>
 
     <sql id="baseColumn">
@@ -24,7 +25,8 @@
         name,
         phone,
         hobby,
-        pwd
+        pwd,
+        url
     </sql>
 
 
@@ -37,7 +39,8 @@
         name,
         phone,
         hobby,
-        pwd
+        pwd,
+        url
         )
         values (
         #age#,
@@ -45,7 +48,8 @@
         #name#,
         #phone#,
         #hobby#,
-        #password#
+        #password#,
+        #url#
         )
         <selectKey resultClass="long" keyProperty="id">
             select LAST_INSERT_ID() as id

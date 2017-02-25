@@ -23,6 +23,10 @@
     <br>
     <table>
         <tr>
+            <td><h2>提示消息</h2></td>
+            <td><h2>${message}</h2></td>
+        </tr>
+        <tr>
             <td><h2>Name</h2></td>
             <td><h2>${name}</h2></td>
         </tr>

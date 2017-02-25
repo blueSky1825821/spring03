@@ -15,6 +15,7 @@ public class Student implements Serializable{
     private String sex;
     private String hobby;
     private String password;
+    private String url;
 
     public Long getId() {
         return id;
@@ -70,5 +71,13 @@ public class Student implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
