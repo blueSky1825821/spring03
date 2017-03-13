@@ -9,8 +9,8 @@ public class StringUtilsUp {
     private static StringUtilsUp _instance = new StringUtilsUp();
 
     public static Boolean isBlank(String ... args) {
-        for (int i = 0; i < args.length; i++) {
-            if (StringUtils.isBlank(args[i])) {
+        for (String arg : args) {
+            if (StringUtils.isBlank(arg)) {
                 return true;
             }
         }
