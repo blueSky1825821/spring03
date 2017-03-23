@@ -1,8 +1,5 @@
 package com.ThreadTest.test05;
 
-import com.ThreadTest.test04.MyList;
-import com.ThreadTest.test04.ThreadA;
-import com.ThreadTest.test04.ThreadB;
 
 /**
  * Created by sky on 2017/3/9.

@@ -1,7 +1,5 @@
 package com.ThreadTest.test05;
 
-import com.ThreadTest.test04.MyList;
-
 /**
  * Created by sky on 2017/3/9.
  */
