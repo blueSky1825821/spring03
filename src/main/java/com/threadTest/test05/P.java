@@ -1,4 +1,4 @@
-package com.ThreadTest.test05;
+package com.threadTest.test05;
 
 /**
  * Created by sky on 2017/3/10.

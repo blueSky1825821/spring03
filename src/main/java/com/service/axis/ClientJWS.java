@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 public class ClientJWS {
     public static void main(String[] args) {
         String url = "http://localhost:8080/axis2/HelloWorldJWS.jws";
-/*        Service service = new Service();
+/*        Lock service = new Lock();
         try {
             Call call = service.createCall();
             call.setTargetEndpointAddress(url);
