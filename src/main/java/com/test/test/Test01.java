@@ -1,8 +1,14 @@
 package com.test.test;
 
+import com.gc.action.Student;
+import com.utils.DateUtil;
 import org.junit.Test;
 
+import java.lang.reflect.Modifier;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by sky on 2017/1/5.
@@ -11,6 +17,19 @@ public class Test01 {
     public static void main(String[] args) {
         String s = String.valueOf(Double.parseDouble("10") / 100);
         System.out.println(s);
+        try {
+            Class<?> clazz = Class.forName("com.gc.action.Student");
+            String name = clazz.getName();
+            Class clazzSuper = clazz.getSuperclass();
+            String modifiers = Modifier.toString(clazz.getModifiers());
+            if (modifiers.length() > 0) {
+                System.out.println(modifiers + " ");
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Test
@@ -21,5 +40,59 @@ public class Test01 {
             v.add(o);
             o = null;
         }
+    }
+
+
+    private static String toDotName(String s) {
+        if (s == null) {
+            return null;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        boolean upperCase = false;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            boolean nextUpperCase = true;
+
+            if (i < (s.length() - 1)) {
+                nextUpperCase = Character.isUpperCase(s.charAt(i + 1));
+            }
+
+            if ((i >= 0) && Character.isUpperCase(c)) {
+                if (!upperCase || !nextUpperCase) {
+                    if (i > 0)
+                        sb.append(".");
+                }
+                upperCase = true;
+            } else {
+                upperCase = false;
+            }
+
+            sb.append(Character.toLowerCase(c));
+        }
+
+        return sb.toString();
+    }
+
+    @Test
+    public void test02() {
+        String s = "QueryZYPreOutHosSelf";
+        s = toDotName(s);
+        System.out.println(s);
+    }
+
+    @Test
+    public void test03 () {
+        String REGEX = "(\\d{4})-(0\\d{1}|1[0-2])-(0\\d{1}|[12]\\d{1}|3[01])";
+        String REGEX1 = "^\\d{4}";
+        String startDate="02013-06-04 13:25:13.0";
+        Pattern p = Pattern.compile(REGEX);
+        String s = null;
+        Matcher m = p.matcher(startDate);
+        if (m.find()) {
+            s = m.group();
+        }
+        System.out.println(s);
     }
 }
