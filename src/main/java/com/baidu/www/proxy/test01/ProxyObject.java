@@ -1,4 +1,4 @@
-package com.baidu.www;
+package com.baidu.www.proxy.test01;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -14,8 +14,12 @@ public class ProxyObject implements InvocationHandler {
         this.targetObject = targetObject;
     }
 
+    public Object getTargetObject() {
+        return targetObject;
+    }
 
-    //调用，传入一个目标对象，和对应的对象参数
+    //调用处理器，传入一个目标对象，和对应的对象参数
+    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         return method.invoke(targetObject, args);
     }
