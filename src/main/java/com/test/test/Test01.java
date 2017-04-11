@@ -1,6 +1,8 @@
 package com.test.test;
 
+import com.alibaba.fastjson.JSON;
 import com.gc.action.Student;
+import com.result.bo.PersonDo;
 import com.utils.DateUtil;
 import org.junit.Test;
 
@@ -94,5 +96,12 @@ public class Test01 {
             s = m.group();
         }
         System.out.println(s);
+    }
+
+    @Test
+    public void test04() {
+        String s="{\"idNo\":\"231\"}";
+        PersonDo personDo = JSON.parseObject(s, PersonDo.class);
+        System.out.println(personDo);
     }
 }
