@@ -16,7 +16,7 @@ public class PersonDo implements Serializable{
         this.idNo = idNo;
         this.name = name;
         this.sex = sex;
-        this.hobby = hobby;
+        this.hobby = name;
     }
 
     public PersonDo() {
@@ -31,11 +31,11 @@ public class PersonDo implements Serializable{
     }
 
     public String getHobby() {
-        return hobby;
+        return name;
     }
 
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
+    public void setHobby(String name) {
+        this.hobby = name;
     }
 
     public int getId() {

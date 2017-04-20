@@ -1,13 +1,25 @@
-﻿<Response>\n<isSuccess>0</isSuccess>\n<ResultCode>0</ResultCode>\n<ErrorMsg></ErrorMsg>\n
-    <ResultData>\n
-        <RecordList>\n
-            <RecordInfo>\n<billNo>19552438</billNo>\n<billDate>2017-01-07 01:08:12</billDate>\n<deptCode>212</deptCode>\n<deptName>
-                小儿科门诊</deptName>\n<productCode>PBAA0101</productCode>\n<itemName>
-                贴敷治疗(小)</itemName>\n<itemSpecs></itemSpecs>\n<itemLiquid></itemLiquid>\n<itemunits>
-                部位</itemunits>\n<itemQty>2.00</itemQty>\n<itemPrice>1500</itemPrice>\n<billFee>
-                3000</billFee>\n<itemNo></itemNo>\n<hosFeeNo>
-                19552438</hosFeeNo>\n<diseaseCode></diseaseCode>\n<ybInfo></ybInfo>\n
-            </RecordInfo>
-        </RecordList>
-    </ResultData>
-</Response>
+﻿<Request>
+    <cardNo>370281199106185722</cardNo>
+    <operId>ZZJ011</operId>
+    <patientId>5024168</patientId>
+    <ybCardNo></ybCardNo>
+    <sourceCode>ZZJ</sourceCode>
+    <extend></extend>
+    <billNo>12404177|12404178</billNo>
+    <tradeMode></tradeMode>
+    <billItems></billItems>
+    <cardType>10</cardType>
+</Request>
+
+<Request>
+    <cardNo>1649709621</cardNo>
+    <operId>ZZJ008</operId>
+    <patientId>5138650</patientId>
+    <ybCardNo></ybCardNo>
+    <sourceCode>ZZJ</sourceCode>
+    <extend></extend>
+    <billNo>12407288</billNo>
+    <tradeMode></tradeMode>
+    <billItems></billItems>
+    <cardType>2</cardType>
+</Request>

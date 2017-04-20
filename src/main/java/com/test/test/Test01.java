@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.gc.action.Student;
 import com.result.bo.PersonDo;
 import com.utils.DateUtil;
+import com.utils.StringUtilsUp;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.lang.reflect.Modifier;
@@ -100,8 +102,11 @@ public class Test01 {
 
     @Test
     public void test04() {
-        String s="{\"idNo\":\"231\"}";
+        String s="{\"idNo\":\"231\",\"name\":\"231\"}";
         PersonDo personDo = JSON.parseObject(s, PersonDo.class);
         System.out.println(personDo);
+        byte[] b = new byte[]{89,  10,  111};
+        System.out.println(StringUtilsUp.parseByte2HexStr(b));
+        System.out.println(DateTime.now().toString(DateUtil.DEFAULT_FORMAT_SIMPLE) + " 23:59:59");
     }
 }
