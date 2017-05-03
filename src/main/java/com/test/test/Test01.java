@@ -1,15 +1,21 @@
 package com.test.test;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.common.Result;
 import com.gc.action.Student;
 import com.result.bo.PersonDo;
 import com.utils.DateUtil;
 import com.utils.StringUtilsUp;
 import org.joda.time.DateTime;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.lang.reflect.Modifier;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -87,10 +93,10 @@ public class Test01 {
     }
 
     @Test
-    public void test03 () {
+    public void test03() {
         String REGEX = "(\\d{4})-(0\\d{1}|1[0-2])-(0\\d{1}|[12]\\d{1}|3[01])";
         String REGEX1 = "^\\d{4}";
-        String startDate="02013-06-04 13:25:13.0";
+        String startDate = "02013-06-04 13:25:13.0";
         Pattern p = Pattern.compile(REGEX);
         String s = null;
         Matcher m = p.matcher(startDate);
@@ -102,11 +108,29 @@ public class Test01 {
 
     @Test
     public void test04() {
-        String s="{\"idNo\":\"231\",\"name\":\"231\"}";
+        String s = "{\"idNo\":\"231\",\"name\":\"231\"}";
         PersonDo personDo = JSON.parseObject(s, PersonDo.class);
         System.out.println(personDo);
-        byte[] b = new byte[]{89,  10,  111};
+        byte[] b = new byte[]{89, 10, 111};
+        List<byte[]> a = Arrays.asList(b);
+        new LinkedList<>(a);
         System.out.println(StringUtilsUp.parseByte2HexStr(b));
         System.out.println(DateTime.now().toString(DateUtil.DEFAULT_FORMAT_SIMPLE) + " 23:59:59");
+        try {
+            JSONObject jsonObject = JSON.parseObject(null);
+            if(jsonObject == null) {
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void test05() {
+        String s = "11222";
+        boolean b = StringUtilsUp.checkDigit(s);
+        Assert.assertTrue(b);
     }
 }

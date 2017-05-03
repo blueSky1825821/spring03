@@ -17,6 +17,21 @@ public class StringUtilsUp {
         return false;
     }
 
+    public static boolean checkDigit (String arrayStr) {
+        arrayStr = arrayStr.trim();
+        if (StringUtilsUp.isBlank(arrayStr)) {
+            return false;
+        }
+        for (int i = 0; i < arrayStr.length(); i++) {
+            char charAt = arrayStr.charAt(i);
+            if (Character.isDigit(charAt)) {
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+
     /**将二进制转换成16进制
      * @param buf
      * @return
