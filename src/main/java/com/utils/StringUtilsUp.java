@@ -1,6 +1,7 @@
 package com.utils;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
 
 /**
  * Created by sky on 2017/2/24.
@@ -17,6 +18,11 @@ public class StringUtilsUp {
         return false;
     }
 
+    /**
+     * 判断字符串是数字
+     * @param arrayStr
+     * @return
+     */
     public static boolean checkDigit (String arrayStr) {
         arrayStr = arrayStr.trim();
         if (StringUtilsUp.isBlank(arrayStr)) {
@@ -30,6 +36,17 @@ public class StringUtilsUp {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 判断字符串是数字
+     * @param arrayStr
+     * @return
+     */
+    public static boolean isDigit (String arrayStr) {
+        System.out.println(NumberUtils.isDigits(arrayStr));
+        System.out.println(NumberUtils.isNumber(arrayStr));
+        return NumberUtils.isDigits(arrayStr);
     }
 
     /**将二进制转换成16进制
@@ -62,5 +79,10 @@ public class StringUtilsUp {
             result[i] = (byte) (high * 16 + low);
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        String s = "1233441121a";
+        isDigit(s);
     }
 }

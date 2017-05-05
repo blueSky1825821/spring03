@@ -198,7 +198,7 @@ public final class ToStringHelper {
 	 *
 	 * <p>
 	 * After calling this method, you can keep adding more properties to later
-	 * call toString() again and get a more complete representation of the same
+	 * call ToString() again and get a more complete representation of the same
 	 * object; but properties cannot be removed, so this only allows limited
 	 * reuse of the helper instance. The helper allows duplication of properties
 	 * (multiple name/value pairs with the same name can be added).

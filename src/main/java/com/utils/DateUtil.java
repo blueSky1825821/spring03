@@ -112,7 +112,7 @@ public class DateUtil {
   }
 
   public static void main(String args[]) {
-    strDate("2017-02-25",DEFAULT_FORMAT);
+    strDate("2017-t02-25",DEFAULT_FORMAT);
   }
 
   /**

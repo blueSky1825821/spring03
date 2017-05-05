@@ -5,6 +5,6 @@ package com.test.www;
  */
 public class DateFormat01 {
     public static void main(String[] args) {
-//        DateTime.now().minusMonths(1).toString("yyyy-MM-dd HH:mm:ss");
+//        DateTime.now().minusMonths(1).ToString("yyyy-MM-dd HH:mm:ss");
     }
 }
