@@ -132,5 +132,6 @@ public class Test01 {
         String s = "11222";
         boolean b = StringUtilsUp.checkDigit(s);
         Assert.assertTrue(b);
+        s.intern();
     }
 }

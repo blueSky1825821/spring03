@@ -13,7 +13,7 @@
     <title>教工系统</title>
     <%--    <style>
             body{
-                background-image: url(/photos/christmas.jpg);
+                background-images: url(/photos/christmas.jpg);
                 background-repeat: repeat-x;
             }
         </style>--%>

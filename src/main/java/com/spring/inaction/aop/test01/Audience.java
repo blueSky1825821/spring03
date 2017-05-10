@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.*;
  * Created by sky on 2017/1/11.
  * 观众作为切面：从演出角度观众不是核心
  */
-@Aspect
+//@Aspect
 public class Audience {
 
     @Pointcut("execution(* com.spring.inaction.aop.test01.Performance(..))")

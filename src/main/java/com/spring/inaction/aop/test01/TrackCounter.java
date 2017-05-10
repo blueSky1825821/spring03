@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by sky on 2017/1/11. 121
  */
-@Aspect
+//@Aspect
 public class TrackCounter {
 
     private Map<Integer, Integer> trackCounts = new HashMap<>();

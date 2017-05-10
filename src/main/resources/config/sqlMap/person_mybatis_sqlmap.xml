@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//com.mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间使得你所见到的接口绑定成为可能，尽管你觉得这些东西未必用得上，
+你还是应该遵循这里的规定以防哪天你改变了主意。出于长远考虑，使用命名空间，
+并将它置于合适的 Java 包命名空间之下，
+你将拥有一份更加整洁的代码并提高了 MyBatis 的可用性。-->
+
+<mapper namespace="com.spring.tutorialspoint.mapper.BlogMapper">
+
+    <resultMap id="BlogMap" type="Blog">
+        <id column="id" property="id"/>
+        <id column="name" property="name"/>
+        <id column="sex" property="sex"/>
+    </resultMap>
+
+    <select id="select" parameterType="Blog">
+        select * from blog where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="Boolean">
+        INSERT INTO blog (id, name, sex) VALUES (#{id}, #{name}, #{sex})
+    </insert>
+</mapper>

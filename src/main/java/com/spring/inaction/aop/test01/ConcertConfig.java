@@ -8,9 +8,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 /**
  * Created by sky on 2017/1/11.
  */
-@Configuration
-@EnableAspectJAutoProxy     //启用AspectJ自动代理
-@ComponentScan
+//@Configuration
+//@EnableAspectJAutoProxy     //启用AspectJ自动代理
+//@ComponentScan
 public class ConcertConfig {
 
     @Bean

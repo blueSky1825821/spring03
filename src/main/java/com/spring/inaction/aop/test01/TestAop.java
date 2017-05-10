@@ -10,9 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by sky on 2017/1/11.
  */
 //测试时自动创建Spring应用上下文
-@RunWith(SpringJUnit4ClassRunner.class)
-//加载bean
-@ContextConfiguration(classes = ConcertConfig.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
+////加载bean
+//@ContextConfiguration(classes = ConcertConfig.class)
 public class TestAop {
 
     @Autowired
