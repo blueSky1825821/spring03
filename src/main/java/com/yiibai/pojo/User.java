@@ -1,5 +1,8 @@
 package com.yiibai.pojo;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +19,7 @@ public class User implements Serializable {
     private String username;
     private String mobile;
     private Date birthday;
+    private List<String> extend;
 
     public int getId() {
         return id;
@@ -47,5 +51,19 @@ public class User implements Serializable {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+
+    public List<String> getExtend() {
+        return extend;
+    }
+
+    public void setExtend(List<String> extend) {
+        this.extend = extend;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append(id).append(username).append(mobile).append(birthday).append(extend).toString();
     }
 }

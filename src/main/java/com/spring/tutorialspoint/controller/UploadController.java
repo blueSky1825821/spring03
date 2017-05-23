@@ -78,6 +78,7 @@ public class UploadController {
         }
         long endTime = System.currentTimeMillis();
         System.out.println("方法二的运行时间：" + String.valueOf(endTime - startTime) + "ms");
+        log.error("方法二的运行时间：" + String.valueOf(endTime - startTime) + "ms");
         return "redirect:/fileList.do1";
     }
 

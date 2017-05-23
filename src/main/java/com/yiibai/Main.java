@@ -1,8 +1,9 @@
 package com.yiibai;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.yiibai.mapper.UserMaper;
+import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,6 +23,7 @@ import com.yiibai.pojo.User;
 
 public class Main {
 
+	private static final Logger logger = Logger.getLogger(Main.class);
 	private static ApplicationContext ctx;
 
 	static {
@@ -48,8 +50,24 @@ public class Main {
 		user1.setMobile("18258211286");
 		user1.setUsername("wm");
 		user1.setBirthday(DateTime.now().plusDays(1).toDate());
+		List<String> list = new ArrayList();
+		list.add("address");
+		list.add("地球村");
+		user1.setExtend(list);
 		int number = userMaper.insertUser(user1);
 		System.out.println("insert: " + number);
+		User user2 = userMaper.getUserById(9);
+		System.err.println(user2);
+
+		//入参是多个id 返回多个对象
+		List<Integer> list1 = new ArrayList();
+		list1.add(1);
+		list1.add(10);
+		List<User> userList = userMaper.getUsers(list1);
+		for(User u : userList) {
+			System.out.println(u);
+			logger.error(u);
+		}
 	}
 
 }

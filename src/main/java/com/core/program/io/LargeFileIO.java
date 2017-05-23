@@ -38,6 +38,7 @@ public class LargeFileIO {
                         long num = 0;
                         long sum = 0;
                         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(inputFile + File.separator + input[i]));
+                        //读取10M
                         BufferedReader in = new BufferedReader(new InputStreamReader(bis, "UTF-8"), 10 * 1024 * 1024);
                         FileWriter fw = new FileWriter(outputFile);
                         while (in.ready()) {
@@ -46,7 +47,6 @@ public class LargeFileIO {
                             if (Pattern.compile(REGEX).matcher(line).find()) {
                                 int a = line.indexOf(REGEX);
                                 line = line.substring(a + 12);
-
                             }
                             if (Pattern.compile(REGEX0).matcher(line).find()) {
                                 num0++;

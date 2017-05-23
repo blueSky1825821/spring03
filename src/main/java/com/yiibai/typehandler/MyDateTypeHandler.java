@@ -18,6 +18,7 @@ import java.util.Date;
 @MappedTypes(Date.class) //java 类型 描述了哪些Java类型可被拦截。
 public class MyDateTypeHandler extends BaseTypeHandler<Date>{
     //重新定义要写往数据库的数据。
+    //preparedStatement:执行的SQL语句  i：需要转换的第几个参数 date:数据内容 jdbcType:数据库存入的类型
     @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, Date date, JdbcType jdbcType) throws SQLException {
         preparedStatement.setString(i, String.valueOf(date.getTime()));

@@ -11,6 +11,7 @@
         <result column="username" property="username"/>
         <result column="mobile" property="mobile"/>
         <result column="birthday" property="birthday"/>
+        <result column="extend" property="extend"/>
     </resultMap>
 
     <!-- User 联合 Order 查询 方法的配置 (多对一的方式)  -->
@@ -25,6 +26,7 @@
             <result property="username" column="username"/>
             <result property="mobile" column="mobile"/>
             <result column="birthday" property="birthday"/>
+            <result column="extend" property="extend"/>
         </association>
     </resultMap>
 
@@ -33,20 +35,36 @@
 	          WHERE u.id=o.user_id AND u.id=#{id}
 	</select>
 
-    <select id="getUserById" resultMap="resultUser" parameterType="int">
+    <select id="getUserById" resultMap="resultUserMap" parameterType="int">
 		SELECT *
 		FROM user
 		WHERE id=#{id}
 	</select>
 
     <insert id="insertUser" parameterType="User" useGeneratedKeys="true">
-        insert into user (id,username,mobile,birthday)
-        values (#{id},#{username},#{mobile},#{birthday})
+        insert into user (id,username,mobile,birthday,extend)
+        values (#{id},#{username},#{mobile},#{birthday, jdbcType=VARCHAR, javaType=Date, typeHandler=MyDateTypeHandler},
+        #{extend, jdbcType=VARCHAR, javaType=List, typeHandler=MyStringArrayTypeHandler})
     </insert>
 
-    <resultMap id="userResultMap" type="User">
+    <!--配置resultMap 将Date转换为需要的数据类型-->
+    <resultMap id="resultUserMap" type="User">
         <result typeHandler="MyDateTypeHandler" column="birthday" javaType="java.util.Date"
                 jdbcType="VARCHAR"
                 property="birthday"/>
+        <result typeHandler="myStringArrayTypeHandler" column="extend" javaType="java.util.List"
+                jdbcType="VARCHAR"
+                property="extend"/>
     </resultMap>
+
+    <select id="getUsers" resultType="User">
+        SELECT *
+        FROM user u
+        WHERE id in
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
 </mapper>

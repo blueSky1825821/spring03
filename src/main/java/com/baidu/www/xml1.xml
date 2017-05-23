@@ -1,25 +1,104 @@
-﻿<Request>
-    <cardNo>370281199106185722</cardNo>
-    <operId>ZZJ011</operId>
-    <patientId>5024168</patientId>
-    <ybCardNo></ybCardNo>
-    <sourceCode>ZZJ</sourceCode>
-    <extend></extend>
-    <billNo>12404177|12404178</billNo>
-    <tradeMode></tradeMode>
-    <billItems></billItems>
-    <cardType>10</cardType>
-</Request>
-
-<Request>
-    <cardNo>1649709621</cardNo>
-    <operId>ZZJ008</operId>
-    <patientId>5138650</patientId>
-    <ybCardNo></ybCardNo>
-    <sourceCode>ZZJ</sourceCode>
-    <extend></extend>
-    <billNo>12407288</billNo>
-    <tradeMode></tradeMode>
-    <billItems></billItems>
-    <cardType>2</cardType>
-</Request>
+﻿<Response>
+    <ResultCode>0</ResultCode>
+    <ErrorMsg>交易成功</ErrorMsg>
+    <ResultData>
+        <RecordList>
+            <RecordInfo>
+                <reportId>6916917</reportId>
+                <patientId>4962542</patientId>
+                <patientName>叶倩文</patientName>
+                <age>26岁</age>
+                <sex>女</sex>
+                <cardNo>16577106</cardNo>
+                <cardType>1</cardType>
+                <inhospId>20160000145853</inhospId>
+                <examType>免疫</examType>
+                <checkPart></checkPart>
+                <checkDoc>孙斌</checkDoc>
+                <sendTime>2016-11-28 08:39:48</sendTime>
+                <resultTime>2016-11-28 09:49:08</resultTime>
+                <printTimes>1</printTimes>
+                <inspectDoctor>崔风云</inspectDoctor>
+                <auditTime>2016-11-28 09:50:11</auditTime>
+                <examItem>
+                    <itemName>游离T3</itemName>
+                    <itemRealValue>3.97</itemRealValue>
+                    <itemRefRange>2.76～6.45</itemRefRange>
+                    <itemMark></itemMark>
+                    <itemUnits>pmol/l</itemUnits>
+                    <reportId>6916917</reportId>
+                    <quaResult>3.9700</quaResult>
+                    <itemAbbr>FT3</itemAbbr>
+                </examItem>
+                <examItem>
+                    <itemName>游离T4</itemName>
+                    <itemRealValue>9.67</itemRealValue>
+                    <itemRefRange>6.44～18.02</itemRefRange>
+                    <itemMark></itemMark>
+                    <itemUnits>pmol/l</itemUnits>
+                    <reportId>6916917</reportId>
+                    <quaResult>9.6700</quaResult>
+                    <itemAbbr>FT4</itemAbbr>
+                </examItem>
+                <examItem>
+                    <itemName>孕酮</itemName>
+                    <itemRealValue>28.98</itemRealValue>
+                    <itemRefRange>卵泡期 0.3-1.5;排卵期 0.3-1.6;黄体期 5.2-18.6;绝经期 0.0-0.8</itemRefRange>
+                    <itemMark></itemMark>
+                    <itemUnits>ng/ml</itemUnits>
+                    <reportId>6916917</reportId>
+                    <quaResult>28.9800</quaResult>
+                    <itemAbbr>Prog</itemAbbr>
+                </examItem>
+                <examItem>
+                    <itemName>甲状腺过氧化物酶抗体</itemName>
+                    <itemRealValue>0.69</itemRealValue>
+                    <itemRefRange>0～9.00</itemRefRange>
+                    <itemMark></itemMark>
+                    <itemUnits>IU/ml</itemUnits>
+                    <reportId>6916917</reportId>
+                    <quaResult>0.6900</quaResult>
+                    <itemAbbr>TPO-Ab</itemAbbr>
+                </examItem>
+                <examItem>
+                    <itemName>促甲状腺激素</itemName>
+                    <itemRealValue>1.470</itemRealValue>
+                    <itemRefRange>0.350～5.100</itemRefRange>
+                    <itemMark></itemMark>
+                    <itemUnits>uIU/ml</itemUnits>
+                    <reportId>6916917</reportId>
+                    <quaResult>1.4700</quaResult>
+                    <itemAbbr>TSH</itemAbbr>
+                </examItem>
+            </RecordInfo>
+            <RecordInfo>
+                <reportId>6917088</reportId>
+                <patientId>4962542</patientId>
+                <patientName>叶倩文</patientName>
+                <age>26岁</age>
+                <sex>女</sex>
+                <cardNo>16577106</cardNo>
+                <cardType>1</cardType>
+                <inhospId>20160000145853</inhospId>
+                <examType>生化</examType>
+                <checkPart></checkPart>
+                <checkDoc>刘春晓</checkDoc>
+                <sendTime>2016-11-28 08:49:34</sendTime>
+                <resultTime>2016-11-28 09:54:34</resultTime>
+                <printTimes>1</printTimes>
+                <inspectDoctor>崔风云</inspectDoctor>
+                <auditTime>2016-11-28 10:01:25</auditTime>
+                <examItem>
+                    <itemName>血糖</itemName>
+                    <itemRealValue>4.56</itemRealValue>
+                    <itemRefRange>3.88～6.38</itemRefRange>
+                    <itemMark></itemMark>
+                    <itemUnits>mmol/L</itemUnits>
+                    <reportId>6917088</reportId>
+                    <quaResult>4.5600</quaResult>
+                    <itemAbbr>GLU1</itemAbbr>
+                </examItem>
+            </RecordInfo>
+        </RecordList>
+    </ResultData>
+</Response>

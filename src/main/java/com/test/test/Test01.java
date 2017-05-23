@@ -13,10 +13,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Modifier;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -133,5 +130,16 @@ public class Test01 {
         boolean b = StringUtilsUp.checkDigit(s);
         Assert.assertTrue(b);
         s.intern();
+    }
+
+    @Test
+    public void test06() {
+        Map<String, Object> map1 = new HashMap<String, Object>();
+        map1.put("disCountFee", "12");
+        map1.put("disCountFlag", "21223");
+        JSONObject s = new JSONObject(map1);
+        System.out.println(s.toJSONString());
+        boolean b;
+        System.out.println(boolean.class);
     }
 }

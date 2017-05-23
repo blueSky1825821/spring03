@@ -9,8 +9,13 @@
         <typeAlias alias="User" type="com.yiibai.pojo.User"/>
         <typeAlias alias="Order" type="com.yiibai.pojo.Order"/>
         <typeAlias alias="MyDateTypeHandler" type="com.yiibai.typehandler.MyDateTypeHandler"/>
+        <typeAlias alias="myStringArrayTypeHandler" type="com.yiibai.typehandler.MyStringArrayTypeHandler"/>
     </typeAliases>
 
+    <!--类型处理器-->
+    <typeHandlers>
+        <package name="com.yiibai.typehandler"/>
+    </typeHandlers>
 
     <!-- Mybatis和Spring 集成之后,这些可以完全删除（注释掉）,数据库连接的管理交给 Spring 来管理 -->
     <!--
