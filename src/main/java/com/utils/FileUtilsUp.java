@@ -7,6 +7,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by sky on 2017/2/25.
@@ -192,6 +193,27 @@ public class FileUtilsUp {
             }
         }
         return false;
+    }
+
+    /**
+     * 获取根目录所有文件
+     * @param list
+     * @param rootFile
+     * @return
+     */
+    public static List<String> getFilePath(List<String> list, File rootFile) {
+        if (!rootFile.exists()) {
+            return null;
+        }
+        File[] files = rootFile.listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
+                getFilePath(list, file);
+            } else {
+                list.add(file.getAbsolutePath().replace("\\", File.separator));
+            }
+        }
+        return list;
     }
 
     public static void main(String[] args) {

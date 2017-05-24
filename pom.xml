@@ -230,6 +230,14 @@
             <version>2.0.8</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
         <dependency>
             <groupId>commons-dbcp</groupId>
@@ -278,6 +286,12 @@
             <version>2.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.4</version>
+        </dependency>
 
         <!--文件上传下载需要jar start-->
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
@@ -318,6 +332,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+
     </repositories>
 
     <build>
