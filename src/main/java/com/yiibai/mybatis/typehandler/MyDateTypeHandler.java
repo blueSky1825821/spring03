@@ -1,4 +1,4 @@
-package com.yiibai.typehandler;
+package com.yiibai.mybatis.typehandler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

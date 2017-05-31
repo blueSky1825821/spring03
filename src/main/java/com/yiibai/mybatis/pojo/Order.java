@@ -1,4 +1,4 @@
-package com.yiibai.pojo;
+package com.yiibai.mybatis.pojo;
 
 /**
  * @describe: Order - 订单

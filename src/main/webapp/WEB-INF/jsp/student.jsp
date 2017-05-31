@@ -18,6 +18,20 @@
             }
         </style>--%>
 
+    <style>
+        .error {
+            color: #ff0000;
+        }
+
+        .errorStyle {
+            color: #000;
+            background-color: #ffEEEE;
+            border: 3px solid #ff0000;
+            padding: 8px;
+            margin: 16px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -34,23 +48,30 @@
     </audio>
 
     <h2>Happy Fairy Information</h2>
-    <form:form method="POST" action="registerRetStudent.do1">
+    <%--<form:errors path="*" cssClass="errorStyle" element="div"/>--%>
+    <form:form method="POST" action="registerRetStudent.do1" commandName="student">
         <table>
             <tr>
                 <td><form:label path="name">Name</form:label></td>
                 <td><form:input path="name"/></td>
+                <td><form:errors path="name" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path="password">password</form:label></td>
-                <td><form:input path="password"/></td>
+                <td><form:password path="password"/></td>
+                <td><form:errors path="password" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path="age">Age</form:label></td>
                 <td><form:input path="age"/></td>
+                <td><form:errors path="age" cssClass="error"/></td>
+                    <%--表单使用密码--%>
             </tr>
             <tr>
                 <td><form:label path="sex">sex</form:label></td>
-                <td><form:input path="sex"/></td>
+                <td><form:radiobutton path="sex" value="1" label="男"/></td>
+                <td><form:radiobutton path="sex" value="2" label="女"/></td>
+                <td><form:errors path="sex" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path="phone">phone</form:label></td>

@@ -20,6 +20,7 @@
     <!--<task:annotation-driven/>-->
     <!--use to activate Spring MVC annotation scanning capability which allows to make use of annotations like @Controller and @RequestMapping etc.-->
     <context:component-scan base-package="com.spring.tutorialspoint.*"/>
+    <context:component-scan base-package="com.yiibai.spring.*"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

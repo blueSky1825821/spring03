@@ -5,22 +5,20 @@ import com.spring.tutorialspoint.dao.StudentDao;
 import com.spring.tutorialspoint.exception.SpringException;
 import com.spring.tutorialspoint.po.PersonDo;
 import com.spring.tutorialspoint.po.Student;
-import com.utils.FileUtilsUp;
 import com.utils.StringUtilsUp;
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,6 +26,7 @@ import java.util.List;
  */
 @Controller
 public class StudentController {
+
     @Autowired
     private PersonDao personDao;
 
@@ -40,6 +39,15 @@ public class StudentController {
 
     static Logger log = Logger.getLogger(StudentController.class.getName());
 
+    @Autowired
+    @Qualifier("studentValidator")//限定注入的对象，避免有歧义
+    private Validator validator;
+
+    @InitBinder
+    private void initBinder(WebDataBinder binder) {
+        binder.setValidator(validator);
+    }
+
     @RequestMapping(value = "/test.do1", method = {RequestMethod.GET, RequestMethod.POST})
     public void test() {
         PersonDo p = personDao.queryPersonByName("wangmin");
@@ -48,12 +56,17 @@ public class StudentController {
 
     @RequestMapping(value = "/student.do1", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView student() {
-        return new ModelAndView("student", "command", new Student());
+        return new ModelAndView("student", "student", new Student());
     }
 
+    //    @ModelAttribute("student")返回的js中可以使用student获取对应属性
     @RequestMapping(value = "/registerRetStudent.do1", method = {RequestMethod.GET, RequestMethod.POST})
-    public String register(@ModelAttribute("student") Student student,
+    public String register(@ModelAttribute("student") @Validated Student student,
+                           BindingResult bindingResult,
                            ModelMap model) {
+        if (bindingResult.hasErrors()) {
+            return "student";
+        }
         if (student.getName().length() < 2) {
             throw new SpringException("Given name is too short, 填写真实姓名呢！");
         } else {

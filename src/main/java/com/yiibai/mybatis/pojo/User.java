@@ -1,4 +1,4 @@
-package com.yiibai.pojo;
+package com.yiibai.mybatis.pojo;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;

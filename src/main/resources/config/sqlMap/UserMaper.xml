@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//com.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yiibai.mapper.UserMaper">
+<mapper namespace="com.yiibai.mybatis.mapper.UserMaper">
 
-    <!--用type="com.yiibai.pojo.User" 时可以写改Configuration.xml-->
-    <!--<resultMap type="com.yiibai.pojo.User" id="resultUser">-->
+    <!--用tycom.yiibai.mybatis.pojopojo.User" 时可以写改Configuration.xml-->
+    <!--<resultMap tycom.yiibai.mybatis.pojopojo.User" id="resultUser">-->
     <!-- 为了返回list 类型而定义的returnMap -->
     <resultMap type="User" id="resultUser">
         <id column="id" property="id"/>

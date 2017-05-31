@@ -7,7 +7,7 @@ import javax.sql.DataSource;
 /**
  * Created by sky on 2017/1/22.
  */
-public class config {
+public class Config {
 
     public DataSource dataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();

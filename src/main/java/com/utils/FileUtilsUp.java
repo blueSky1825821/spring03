@@ -5,8 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -197,6 +196,7 @@ public class FileUtilsUp {
 
     /**
      * 获取根目录所有文件
+     *
      * @param list
      * @param rootFile
      * @return
@@ -214,6 +214,55 @@ public class FileUtilsUp {
             }
         }
         return list;
+    }
+
+    /**
+     * 利用缓存写文件
+     *
+     * @param sourceFile
+     * @param destFile
+     */
+    public static void writeFile(File sourceFile, File destFile) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader
+                    (new InputStreamReader(new FileInputStream(sourceFile), "UTF-8"), 10 * 1024 * 1024);
+            BufferedWriter writer = new BufferedWriter
+                    (new FileWriter(destFile));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine();   //另起一行
+            }
+            reader.close();
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 利用缓存读文件
+     *
+     * @param sourceFile
+     */
+    public static void File(File sourceFile) {
+        try {
+            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(sourceFile));
+            BufferedReader in = new BufferedReader(new InputStreamReader(bis, "UTF-8"), 10 * 1024 * 1024);
+            if (in.ready()) {
+                System.out.println(in.readLine());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

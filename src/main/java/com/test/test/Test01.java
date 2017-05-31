@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.common.Result;
 import com.gc.action.Student;
+import com.google.common.base.MoreObjects;
 import com.result.bo.PersonDo;
 import com.utils.DateUtil;
 import com.utils.StringUtilsUp;
@@ -141,5 +142,8 @@ public class Test01 {
         System.out.println(s.toJSONString());
         boolean b;
         System.out.println(boolean.class);
+        String s1 = (String) MoreObjects.firstNonNull(JSON.parseObject("{\"sa\":\"das\"}").get("gfFeeFlag"), "");
+        System.out.println(s1);
+        System.out.println(DateTime.now().toString("yyyy-MM-dd HH:mm:ss"));
     }
 }

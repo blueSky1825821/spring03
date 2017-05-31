@@ -1,6 +1,6 @@
 package com.spring.inaction.mvc.web;
 
-//import com.spring.inaction.mvc.config.Spittle;
+//import com.spring.inaction.mvc.Config.Spittle;
 
 import java.util.List;
 

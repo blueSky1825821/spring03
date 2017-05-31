@@ -28,20 +28,24 @@
         </tr>
         <tr>
             <td><h2>Name</h2></td>
-            <td><h2>${name}</h2></td>
+            <td><h2>${student.name}</h2></td>
         </tr>
         <tr>
             <td><h2>Age</h2></td>
-            <td><h2>${age}</h2></td>
+            <td><h2>${student.age}</h2></td>
+        </tr>
+        <tr>
+            <td><h2>SEX</h2></td>
+            <td><h2>${(student.sex=="1"? "男" : "女")}</h2></td>
         </tr>
         <tr>
             <td><h2>Hobby</h2></td>
-            <td><h2>${hobby}</h2></td>
+            <td><h2>${student.hobby}</h2></td>
         </tr>
     </table>
     <br>
     <br>
-    <h2>${name}，您好，欢迎您登陆教工系统！</h2><br>
+    <h2>${student.name}，您好，欢迎您登陆教工系统！</h2><br>
     <h2>希望您每天能开开心心的！！!</h2>
     <br>
     <h1><font color="red"> Merry Christmas</font></h1>

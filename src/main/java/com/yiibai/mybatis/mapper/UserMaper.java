@@ -1,8 +1,8 @@
-package com.yiibai.mapper;
+package com.yiibai.mybatis.mapper;
 
 import java.util.List;
-import com.yiibai.pojo.Order;
-import com.yiibai.pojo.User;
+import com.yiibai.mybatis.pojo.Order;
+import com.yiibai.mybatis.pojo.User;
 
 public interface UserMaper { 
 	User getUserById(int userId);

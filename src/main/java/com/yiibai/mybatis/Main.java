@@ -1,16 +1,16 @@
-package com.yiibai;
+package com.yiibai.mybatis;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yiibai.mapper.UserMaper;
+import com.yiibai.mybatis.mapper.UserMaper;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-import com.yiibai.pojo.Order;
-import com.yiibai.pojo.User;
+import com.yiibai.mybatis.pojo.Order;
+import com.yiibai.mybatis.pojo.User;
 
 /**
  * Description
