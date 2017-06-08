@@ -7,18 +7,25 @@ import com.spring.tutorialspoint.other.HelloIndia;
 import com.spring.tutorialspoint.other.HelloWorld;
 import com.spring.tutorialspoint.other.HelloWorldConfig;
 import com.spring.tutorialspoint.other.JavaCollection;
+import com.spring.tutorialspoint.service.GuavaCacheService;
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+import javax.annotation.Resource;
 
 /**
  * Created by sky on 2016/12/12.
  */
 public class MainApp {
+
     static Logger log = Logger.getLogger(MainApp.class.getName());
 
     public static void main(String[] args) {
@@ -110,11 +117,23 @@ public class MainApp {
         customEventPublisher.publish();
         customEventPublisher.publish();
     }
-    
+
     @Test
     public void test09() {
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         MainTask mainTask = (MainTask) context.getBean("mainTask");
         mainTask.excute();
+    }
+
+    @Test
+    public void test10() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        GuavaCacheService cacheService = (GuavaCacheService) context.getBean("guavaCacheService");
+        for (int i = 0; i < 10; i++) {
+            cacheService.put(i, cacheService.preQueryHisCard + i);
+        }
+        for (int i = 0; i < 10; i++) {
+            System.out.println(cacheService.get(i));
+        }
     }
 }

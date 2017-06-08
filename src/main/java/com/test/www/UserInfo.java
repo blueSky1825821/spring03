@@ -37,4 +37,7 @@ public class UserInfo {
         this.age = age;
     }
 
+    public void init() {
+        System.out.println("This is my first Applet code");
+    }
 }
