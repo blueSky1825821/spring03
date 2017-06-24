@@ -4,19 +4,21 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.MoreObjects;
 import com.result.bo.PersonDo;
-import com.spring.tutorialspoint.service.GuavaCacheService;
 import com.utils.DateUtil;
 import com.utils.StringUtilsUp;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.concurrent.*;
+import com.google.common.base.Optional;
+
+import static com.google.common.base.Preconditions.*;
 
 /**
  * Created by sky on 2017/1/5.
@@ -152,7 +154,9 @@ public class Test01 {
         System.out.println(TimeUnit.DAYS.convert(10, TimeUnit.HOURS));
         TimeUnit.SECONDS.sleep(12);
         System.out.println(TimeUnit.DAYS.convert(10, TimeUnit.MINUTES));
+
     }
+
 
 
 }

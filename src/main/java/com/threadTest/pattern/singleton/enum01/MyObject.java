@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 /**
  * Created by sky on 2017/3/22.
+ * 使用枚举值时都会调用构造函数
  */
 public class MyObject {
     public enum MyEnumSingleton {

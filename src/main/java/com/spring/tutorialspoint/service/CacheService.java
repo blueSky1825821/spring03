@@ -5,14 +5,15 @@ import com.google.common.cache.CacheBuilder;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by wm on 2017/6/5.
  */
 @Service("guavaCacheService")
-public class GuavaCacheService {
-    private static Logger logger = Logger.getLogger(GuavaCacheService.class);
+public class CacheService {
+    private static Logger logger = Logger.getLogger(CacheService.class);
 
     /**
      * 查询HIS患者信息key前缀
@@ -24,7 +25,7 @@ public class GuavaCacheService {
 
     public Cache<Object, Object> cache = cacheBuilder.build();
 
-    public GuavaCacheService() {
+    public CacheService() {
 
     }
 
@@ -62,6 +63,13 @@ public class GuavaCacheService {
      */
     public void cleanUp() {
         cache.cleanUp();
+    }
+
+    /**
+     * 查看所有缓存
+     */
+    public Map getCache() {
+        return cache.asMap();
     }
 
 }
