@@ -326,7 +326,12 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.12</version>
         </dependency>
-
+        <!--字段校验-->
+        <dependency>
+            <groupId>com.baidu.unbiz</groupId>
+            <artifactId>fluent-validator</artifactId>
+            <version>1.0.7</version>
+        </dependency>
 
     </dependencies>
 
