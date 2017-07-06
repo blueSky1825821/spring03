@@ -1,7 +1,7 @@
 package com.yiibai.mybatis.pojo;
 
 /**
- * @describe: Order - 订单
+ * @describe: Car - 订单
  * @author: Yiibai
  * @version: V1.0
  * @copyright http://www.yiibai.com

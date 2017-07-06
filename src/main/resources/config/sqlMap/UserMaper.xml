@@ -14,7 +14,7 @@
         <result column="extend" property="extend"/>
     </resultMap>
 
-    <!-- User 联合 Order 查询 方法的配置 (多对一的方式)  -->
+    <!-- UserCarrder 查询 方法的配置 (多对一的方式)  -->
     <resultMap id="resultUserOrders" type="Order">
         <id property="orderId" column="order_id"/>
         <result property="orderNo" column="order_no"/>

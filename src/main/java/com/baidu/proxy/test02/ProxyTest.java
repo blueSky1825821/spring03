@@ -1,4 +1,4 @@
-package com.baidu.www.proxy.test02;
+package com.baidu.proxy.test02;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

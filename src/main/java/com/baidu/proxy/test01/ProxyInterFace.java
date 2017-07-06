@@ -1,4 +1,4 @@
-package com.baidu.www.proxy.test01;
+package com.baidu.proxy.test01;
 
 /**
  * Created by sky on 16-7-5.
