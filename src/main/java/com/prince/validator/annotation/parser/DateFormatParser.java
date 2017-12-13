@@ -29,7 +29,7 @@ public class DateFormatParser implements IAnnotationParser{
 				}
 			} catch (ParseException e) {
 				result.setMessage(dateFormat.fieldName() + "不满足格式：" + dateFormat.format());
-			}	
+			}
 		}
 		return result;
 	}

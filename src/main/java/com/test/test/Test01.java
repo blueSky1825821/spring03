@@ -6,11 +6,14 @@ import com.google.common.base.MoreObjects;
 import com.result.bo.PersonDo;
 import com.utils.DateUtil;
 import com.utils.StringUtilsUp;
+import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.lang.reflect.Modifier;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
@@ -155,6 +158,31 @@ public class Test01 {
         TimeUnit.SECONDS.sleep(12);
         System.out.println(TimeUnit.DAYS.convert(10, TimeUnit.MINUTES));
 
+    }
+
+    @Test
+    public void test07() throws UnknownHostException {
+        InetAddress ip = InetAddress.getLocalHost();
+        System.out.println(ip);
+        String takeMedWin = "492|窗口1";
+        if (StringUtils.isNotBlank(takeMedWin)) {
+            if (takeMedWin.contains("492|")) {
+                System.out.println(takeMedWin.replace("492", "门诊西药房"));
+            } else if (takeMedWin.contains("496|")) {
+                takeMedWin = takeMedWin.replace("496", "五官药房");
+            }
+        }
+        System.out.println(takeMedWin);
+    }
+
+    @Test
+    public void test08() {
+        StringBuffer sb = new StringBuffer();
+        List arrayList = new ArrayList();
+        List linkedList= new LinkedList<>();
+        Map map = new LinkedHashMap();
+        Hashtable hashtable = new Hashtable();
+        TreeMap treeMap = new TreeMap();
     }
 
 

@@ -7,6 +7,7 @@ import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -37,7 +38,7 @@ public class MapUtil {
     // Bean --> Map 1: 利用Introspector和PropertyDescriptor 将Bean --> Map
     public static Map<String, Object> transBean2Map(Object obj) {
 
-        if(obj == null){
+        if (obj == null) {
             return null;
         }
         Map<String, Object> map = new HashMap<String, Object>();
@@ -68,21 +69,22 @@ public class MapUtil {
 
     /**
      * 将一个 JavaBean 对象转化为一个  Map
+     *
      * @param bean 要转化的JavaBean 对象
      * @return 转化出来的  Map 对象
-     * @throws IntrospectionException 如果分析类属性失败
-     * @throws IllegalAccessException 如果实例化 JavaBean 失败
+     * @throws IntrospectionException    如果分析类属性失败
+     * @throws IllegalAccessException    如果实例化 JavaBean 失败
      * @throws InvocationTargetException 如果调用属性的 setter 方法失败
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static Map convertBean(Object bean)
             throws IntrospectionException, IllegalAccessException, InvocationTargetException {
         Class type = bean.getClass();
         Map returnMap = new HashMap();
         BeanInfo beanInfo = Introspector.getBeanInfo(type);
 
-        PropertyDescriptor[] propertyDescriptors =  beanInfo.getPropertyDescriptors();
-        for (int i = 0; i< propertyDescriptors.length; i++) {
+        PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
+        for (int i = 0; i < propertyDescriptors.length; i++) {
             PropertyDescriptor descriptor = propertyDescriptors[i];
             String propertyName = descriptor.getName();
             if (!propertyName.equals("class")) {
@@ -100,37 +102,120 @@ public class MapUtil {
 
     /**
      * 将一个 Map 对象转化为一个 JavaBean
+     *
      * @param type 要转化的类型
-     * @param map 包含属性值的 map
+     * @param map  包含属性值的 map
      * @return 转化出来的 JavaBean 对象
-     * @throws IntrospectionException 如果分析类属性失败
-     * @throws IllegalAccessException 如果实例化 JavaBean 失败
-     * @throws InstantiationException 如果实例化 JavaBean 失败
+     * @throws IntrospectionException    如果分析类属性失败
+     * @throws IllegalAccessException    如果实例化 JavaBean 失败
+     * @throws InstantiationException    如果实例化 JavaBean 失败
      * @throws InvocationTargetException 如果调用属性的 setter 方法失败
      */
     @SuppressWarnings("rawtypes")
-    public static Object convertMap(Class type, Map map)
+    public static Object convertMap(Class type, Map<String, Object> map)
             throws IntrospectionException, IllegalAccessException,
             InstantiationException, InvocationTargetException {
-        BeanInfo beanInfo = Introspector.getBeanInfo(type); // 获取类属性
+        BeanInfo beanInfo = Introspector.getBeanInfo(type);
         Object obj = type.newInstance(); // 创建 JavaBean 对象
 
         // 给 JavaBean 对象的属性赋值
-        PropertyDescriptor[] propertyDescriptors =  beanInfo.getPropertyDescriptors();
-        for (int i = 0; i< propertyDescriptors.length; i++) {
+        PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
+        for (int i = 0; i < propertyDescriptors.length; i++) {
             PropertyDescriptor descriptor = propertyDescriptors[i];
             String propertyName = descriptor.getName();
-
+            Class<?> propertyType = descriptor.getPropertyType();
             if (map.containsKey(propertyName)) {
-                // 下面一句可以 try 起来，这样当一个属性赋值失败的时候就不会影响其他属性赋值。
-                Object value = map.get(propertyName);
-
-                Object[] args = new Object[1];
-                args[0] = value;
-
-                descriptor.getWriteMethod().invoke(obj, args);
+                Object value = convertValType(map.get(propertyName), propertyType);
+                descriptor.getWriteMethod().invoke(obj, value);
             }
         }
         return obj;
     }
+
+
+    /**
+     * 将Object类型的值，转换成bean对象属性里对应的类型值
+     *
+     * @param value          Object对象值
+     * @param fieldTypeClass 属性的类型
+     * @return 转换后的值
+     */
+    private static Object convertValType(Object value, Class<?> fieldTypeClass) {
+        Object retVal = null;
+        if (Long.class.getName().equals(fieldTypeClass.getName())
+                || long.class.getName().equals(fieldTypeClass.getName())) {
+            retVal = Long.parseLong(value.toString());
+        } else if (Integer.class.getName().equals(fieldTypeClass.getName())
+                || int.class.getName().equals(fieldTypeClass.getName())) {
+            retVal = Integer.parseInt(value.toString());
+        } else if (Float.class.getName().equals(fieldTypeClass.getName())
+                || float.class.getName().equals(fieldTypeClass.getName())) {
+            retVal = Float.parseFloat(value.toString());
+        } else if (Double.class.getName().equals(fieldTypeClass.getName())
+                || double.class.getName().equals(fieldTypeClass.getName())) {
+            retVal = Double.parseDouble(value.toString());
+        } else {
+            retVal = value;
+        }
+        return retVal;
+    }
+
+    /**
+     * 将Map对象通过反射机制转换成Bean对象
+     *
+     * @param map   存放数据的map对象
+     * @param clazz 待转换的class
+     * @return 转换后的Bean对象
+     * @throws Exception 异常
+     */
+    public static Object mapToBean(Map<String, Object> map, Class<?> clazz) throws Exception {
+        Object obj = clazz.newInstance();
+        if (map != null && map.size() > 0) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                String propertyName = entry.getKey();       //属性名
+                Object value = entry.getValue();
+                String setMethodName = "set"
+                        + propertyName.substring(0, 1).toUpperCase()
+                        + propertyName.substring(1);
+                Field field = getClassField(clazz, propertyName);
+                if (field == null)
+                    continue;
+                Class<?> fieldTypeClass = field.getType();
+                value = convertValType(value, fieldTypeClass);
+                try {
+                    clazz.getMethod(setMethodName, field.getType()).invoke(obj, value);
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return obj;
+    }
+
+    /**
+     * 获取指定字段名称查找在class中的对应的Field对象(包括查找父类)
+     *
+     * @param clazz     指定的class
+     * @param fieldName 字段名称
+     * @return Field对象
+     */
+    private static Field getClassField(Class<?> clazz, String fieldName) {
+        if (Object.class.getName().equals(clazz.getName())) {
+            return null;
+        }
+        Field[] declaredFields = clazz.getDeclaredFields();
+        for (Field field : declaredFields) {
+            if (field.getName().equals(fieldName)) {
+                return field;
+            }
+        }
+
+        Class<?> superClass = clazz.getSuperclass();
+        if (superClass != null) {// 简单的递归一下
+            return getClassField(superClass, fieldName);
+        }
+        return null;
+    }
+
+
 }

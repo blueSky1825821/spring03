@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 
 /**
  * Created by sky on 2017/4/10.
- * 解析域名
+ * 解析域名/获取本机IP
  */
 public class InetAddressTest {
     public static void main(String[] args) {

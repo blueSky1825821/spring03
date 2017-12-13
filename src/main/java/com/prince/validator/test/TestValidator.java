@@ -1,6 +1,6 @@
 package com.prince.validator.test;
 
-import com.prince.validator.Rule.AnnotationRule;
+import com.prince.validator.rule.AnnotationRule;
 import com.prince.validator.Validator;
 
 public class TestValidator {

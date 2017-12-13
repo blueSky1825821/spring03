@@ -1,7 +1,7 @@
 package com.prince.validator;
 
-import com.prince.validator.Rule.AnnotationRule;
-import com.prince.validator.Rule.Rule;
+import com.prince.validator.rule.AnnotationRule;
+import com.prince.validator.rule.Rule;
 
 /**
  * 通用校验器
