@@ -1,0 +1,11 @@
+<Response>
+    <TradeCode></TradeCode>
+    <BankDate>0922</BankDate>
+    <BankTradeNo>152124279115</BankTradeNo>
+    <ResultCode>0000</ResultCode>
+    <PayCardNo>6222531318958819</PayCardNo>
+    <BankAccDate></BankAccDate>
+    <RevTranFlag>0</RevTranFlag>
+    <PayAmt>267.00</PayAmt>
+    <PatientID>0000356146</PatientID>
+</Response>
