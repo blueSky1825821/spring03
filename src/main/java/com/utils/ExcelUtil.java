@@ -1,12 +1,10 @@
 package com.utils;
 
+import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -142,6 +140,61 @@ public class ExcelUtil {
         }
     }
 
+    /**
+     * 导出 execl
+     *
+     * @param title     列名
+     * @param content   数据
+     * @param sheetName 导出文件名
+     */
+    public void excelExport(String firstRow, Workbook wb, List<String> title, List<String[]> content, int sheetNum, String sheetName) {
+        // 生成一个表格
+        Sheet sheet = wb.createSheet();
+        wb.setSheetName(sheetNum, sheetName);
+
+        Row overviewRow = sheet.createRow((short) 0);
+        Cell overviewCell = overviewRow.createCell(0);
+        overviewCell.setCellValue(firstRow);
+        //title 样式设置
+        Row titleRow = sheet.createRow((short) 1);
+        for (int i = 0; i < title.size(); i++) {
+            sheet.setColumnWidth(i, 3000);
+            titleRow.setHeightInPoints(50F);
+
+            CreationHelper ch = wb.getCreationHelper();
+            DataFormat textFormat = wb.createDataFormat();
+
+            Cell cell = titleRow.createCell((short) i);
+            cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+
+            CellStyle cellStyle = wb.createCellStyle();
+            cellStyle.setWrapText(true);
+//            cellStyle.setBorderLeft(new HBORDER_THIN);
+//            cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
+//            cellStyle.setBorderTop(HSSFCellStyle.BORDER_THICK);
+//            cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+//            cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+//            cellStyle.setFillForegroundColor(HSSFColor.AQUA.index);
+//            cellStyle.setAlignment(CellStyle.ALIGN_CENTER);
+//            cellStyle.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+            cellStyle.setDataFormat(textFormat.getFormat("@"));
+            cell.setCellStyle(cellStyle);
+            cell.setCellValue(ch.createRichTextString(title.get(i)));
+        }
+
+        //数据内容设置
+        int i = 0;
+        for (String[] contentRow : content) {
+            i++;
+            Row row = sheet.createRow((short) (i + 1));
+            for (int j = 0; j < contentRow.length; j++) {
+                Cell cell = row.createCell((short) (j));
+                CreationHelper ch = wb.getCreationHelper();
+                cell.setCellValue(ch.createRichTextString(contentRow[j]));
+            }
+        }
+    }
+
     // 存在的问题
     /*
      * 其实有时候我们希望得到的数据就是excel中的数据，可是最后发现结果不理想
@@ -180,7 +233,32 @@ public class ExcelUtil {
 
     public static void main(String[] args) throws Exception {
         ExcelUtil excelUtil = new ExcelUtil();
-        List<List<String>> list = excelUtil.readXlsx("/media/play/upload/tmp/交易数据.xlsx");
+        List<List<String>> list = excelUtil.readXlsx("/person/upload/tmp/罗湖妇幼字典_加编码.xlsx");
+        List<String[]> ar = new ArrayList<>(list.size());
+        for (int i = 0; i<list.size(); i++) {
+            List<String> l = list.get(i);
+            String[] sa = new String[l.size() + 2];
+            for (int j=0; j<l.size(); j++) {
+                sa[j] = l.get(j);
+                if (j==1) {
+                    sa[l.size() + 1] = Pinyin4jUtil.getPinYinHeadChar(l.get(j)).toUpperCase();
+                }
+            }
+            ar.add(sa);
+        }
+        Workbook wb = new HSSFWorkbook();
+        List<String> title = Lists.newArrayList();
+        title.add("ResultCode");
+        title.add("SimpleName");
+        title.add("Name");
+        title.add("Price");
+        title.add("Unit");
+        title.add("Internal_code");
+        excelUtil.excelExport("firstRow",wb, title, ar, 0,"sheetName");
+        File f = new File("a.xlsx");
+        FileOutputStream out = new FileOutputStream(f);
+        wb.write(out);
+        out.flush();
         System.out.println();
     }
 }

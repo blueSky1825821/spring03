@@ -24,12 +24,12 @@ public class Audience {
         System.out.println("Taking seats");
     }
     //演出精彩鼓掌 通知方法在目标方法返回后调用
-    @AfterReturning("execution(* com.spring.inaction.aop.test01.Performance(..))")
+    @AfterReturning("execution(* com.spring.inaction.aop.pull.Performance(..))")
     public void applauce() {
         System.out.println("CLAP CLAP CLAP!!!");
     }
     //演出失败退费 抛出异常后调用
-    @AfterThrowing("execution(* com.spring.inaction.aop.test01.Performance(..))")
+    @AfterThrowing("execution(* com.spring.inaction.aop.pull.Performance(..))")
     public void demandRefund() {
         System.out.println("Demanding a refund");
     }

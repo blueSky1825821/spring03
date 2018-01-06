@@ -1,7 +1,7 @@
 package com.utils;
 
 import org.apache.commons.beanutils.PropertyUtilsBean;
-import org.apache.commons.lang.*;
+import org.apache.commons.lang.StringUtils;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

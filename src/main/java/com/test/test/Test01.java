@@ -2,8 +2,10 @@ package com.test.test;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.common.Result;
 import com.google.common.base.MoreObjects;
 import com.result.bo.PersonDo;
+import com.spring.tutorialspoint.po.Student;
 import com.utils.DateUtil;
 import com.utils.StringUtilsUp;
 import org.apache.commons.lang.StringUtils;
@@ -19,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.concurrent.*;
+
 import com.google.common.base.Optional;
 
 import static com.google.common.base.Preconditions.*;
@@ -48,13 +51,42 @@ public class Test01 {
     }
 
     @Test
-    public void test01() {
+    public void test01() throws ClassNotFoundException {
         Vector v = new Vector();
         for (int i = 0; i < 100; i++) {
             Object o = new Object();
             v.add(o);
             o = null;
         }
+
+        Class c1 = new ArrayList<String>().getClass();
+        Class c2 = new ArrayList<Integer>().getClass();
+        System.out.println(c1 == c2);
+
+//        Class.forName("");
+//        ClassLoader.getSystemResource("");
+        ArrayList list = new ArrayList();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        ArrayList list2 = (ArrayList) list.clone();
+        list.add("4");
+        list2.add("5");
+        ArrayList list3 = list;
+        list3.add("6");
+
+        System.out.println(list);
+        System.out.println(list2);
+        System.out.println(list3);
+
+        new Vector();
+        new HashSet<>();
+//        new Comparator<Student>();
+//        new Comparable<>()
+        new ArrayDeque<>();
+        new PriorityQueue<>();
+        new HashMap<>();
+        new Thread();
     }
 
 
@@ -92,6 +124,7 @@ public class Test01 {
 
     @Test
     public void test02() {
+        Executors.newCachedThreadPool();
         String s = "QueryZYPreOutHosSelf";
         s = toDotName(s);
         System.out.println(s);
@@ -123,7 +156,7 @@ public class Test01 {
         System.out.println(DateTime.now().toString(DateUtil.DEFAULT_FORMAT_SIMPLE) + " 23:59:59");
         try {
             JSONObject jsonObject = JSON.parseObject(null);
-            if(jsonObject == null) {
+            if (jsonObject == null) {
                 System.out.println();
             }
         } catch (Exception e) {
@@ -136,6 +169,10 @@ public class Test01 {
     public void test05() {
         String s = "11222";
         boolean b = StringUtilsUp.checkDigit(s);
+        String a = null;
+        System.out.println("String a = null;");
+        System.out.println("System.out.println(a);");
+        System.out.println("s" + a);
         Assert.assertTrue(b);
         s.intern();
     }
@@ -179,12 +216,60 @@ public class Test01 {
     public void test08() {
         StringBuffer sb = new StringBuffer();
         List arrayList = new ArrayList();
-        List linkedList= new LinkedList<>();
-        Map map = new LinkedHashMap();
+        List linkedList = new LinkedList<>();
+        Vector v = new Vector();
+        Queue q = new ArrayBlockingQueue(1);
+        Map<String, String> map = new LinkedHashMap<>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            entry.getKey();
+        }
+
+        HashMap hashMap = new HashMap();
         Hashtable hashtable = new Hashtable();
         TreeMap treeMap = new TreeMap();
+        ConcurrentHashMap map1 = new ConcurrentHashMap();
     }
 
+    @Test
+    public void test09() {
+        Result<Object> result = Result.createFailResult();
+        Student s = new Student();
+        s.setAge("1");
+        s.setHobby("2");
+        result.value(s);
+        Student student = (Student) result.value();
+        student.setHobby("3");
+        student.setAge("3");
+        System.out.println(result.value());
+    }
+
+    @Test
+    public void test10() {
+        System.out.println("test10 " + tryCatch());
+    }
+
+    public static int tryCatch() {
+        int a = 10;
+        try {
+            a ++;
+            a = a/0;
+            System.out.println("try " + a);
+            return a;
+        } catch (Exception e) {
+            a ++;
+            a = a/0;
+            System.out.println("exception " + a);
+            return a;
+        } finally {
+            a ++;
+            System.out.println("finally " + a);
+            return a;
+        }
+    }
+
+    public static byte byteTest() {
+        return 0;
+    }
 
 
 }

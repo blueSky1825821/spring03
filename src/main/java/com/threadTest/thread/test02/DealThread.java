@@ -6,8 +6,8 @@ package com.threadTest.thread.test02;
  */
 public class DealThread implements Runnable {
     public String username;
-    public Object lock1 = new Object();
-    public Object lock2 = new Object();
+    public final Object lock1 = new Object();
+    public final Object lock2 = new Object();
 
     public void setFlag(String username) {
         this.username = username;

@@ -150,7 +150,7 @@ public class HttpProtocolHandler {
     }
 
     // 设置Http Header中的User-Agent属性
-    method.addRequestHeader("User-Agent", "Mozilla/4.0");
+    method.addRequestHeader("User-agent", "Mozilla/4.0");
     HttpResponse response = new HttpResponse();
 
     try {

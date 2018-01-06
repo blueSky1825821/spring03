@@ -1,31 +1,14 @@
-﻿<funderService functionName="700888">
-    <Request>
-        <name>李冬阳</name>
-        <gender>1</gender>
-        <idcard>431121198809297756</idcard>
-        <birthday>1988-09-29 00:00:00</birthday>
-        <idcardHos></idcardHos>
-        <phoneNumber>18929371239</phoneNumber>
-        <requestDate>2017-12-08 00:00:00</requestDate>
-        <ampm>p</ampm>
-        <hospitalCode>G3477963-7</hospitalCode>
-        <deptSn>1990200</deptSn>
-        <doctorSn>50356</doctorSn>
-        <doctorName>张景相</doctorName>
-        <clinicType>04</clinicType>
-        <registerFee>19.0</registerFee>
-        <submitDate>2017-12-07 17:04:36</submitDate>
-        <reserverStauts>01</reserverStauts>
-        <searchCode>181466130362</searchCode>
-        <unitName>布心小学</unitName>
-        <patownShip>东晓路</patownShip>
-        <pastreet>布心花园</pastreet>
-        <pahouseNumber>A栋1201</pahouseNumber>
-        <regFrom>5</regFrom>
-        <takeNoTimeStart>16:30</takeNoTimeStart>
-        <timeIntervalStart>16:30</timeIntervalStart>
-        <timeIntervalEnd>17:00</timeIntervalEnd>
-        <accountId></accountId>
-        <p_id>000115439800</p_id>
-    </Request>
-</funderService>
+﻿<?xml version="1.0" encoding="UTF-16LE"?>
+<ROOT>
+    <HEADER>
+        <TRADEMSG>XH006</TRADEMSG>
+        <MACHINEID>ZZJ</MACHINEID>
+        <ZDLXH>123456</ZDLXH>
+    </HEADER>
+    <BODY>
+        <CXLX>1</CXLX>
+        <GHLX>1</GHLX>
+        <KSRQ>2017-12-22</KSRQ>
+        <JSRQ>2017-12-22</JSRQ>
+    </BODY>
+</ROOT>

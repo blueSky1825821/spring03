@@ -23,8 +23,8 @@ public class ExistParser implements IAnnotationParser {
             ExistFormat existFormat = f.getAnnotation(ExistFormat.class);
             if (value != null) {
                 String[] arr = existFormat.exist().split(",");
-                for (int i = 0; i < arr.length; i++) {
-                    if (StringUtils.equals(value.toString(), arr[i])) {
+                for (String anArr : arr) {
+                    if (StringUtils.equals(value.toString(), anArr)) {
                         return result;
                     }
                 }

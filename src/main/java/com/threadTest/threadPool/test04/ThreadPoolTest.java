@@ -19,7 +19,7 @@ public class ThreadPoolTest {
     @Test
     public void test01() {
         String name = "test";
-        ThreadPoolExecutor executor01 = ThreadPoolExecutorUtil.getAllThreadPool("test01");
+        ThreadPoolExecutor executor01 = ThreadPoolExecutorUtil.getAllThreadPool("pull");
         executor01.execute(new Runnable() {
             @Override
             public void run() {
@@ -28,10 +28,10 @@ public class ThreadPoolTest {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("test01 " + Thread.currentThread().getName());
+                System.out.println("pull " + Thread.currentThread().getName());
             }
         });
-        ThreadPoolExecutor executor05 = ThreadPoolExecutorUtil.getAllThreadPool("test01");
+        ThreadPoolExecutor executor05 = ThreadPoolExecutorUtil.getAllThreadPool("pull");
         executor05.execute(new Runnable() {
             @Override
             public void run() {
@@ -44,7 +44,7 @@ public class ThreadPoolTest {
                 System.out.println("test05");
             }
         });
-        ThreadPoolExecutor executor02 = ThreadPoolExecutorUtil.getAllThreadPool("test01");
+        ThreadPoolExecutor executor02 = ThreadPoolExecutorUtil.getAllThreadPool("pull");
         executor02.execute(new Runnable() {
             @Override
             public void run() {
@@ -56,7 +56,7 @@ public class ThreadPoolTest {
                 System.out.println("test02");
             }
         });
-        ThreadPoolExecutor executor03 = ThreadPoolExecutorUtil.getAllThreadPool("test01");
+        ThreadPoolExecutor executor03 = ThreadPoolExecutorUtil.getAllThreadPool("pull");
         executor03.execute(new Runnable() {
             @Override
             public void run() {
@@ -68,7 +68,7 @@ public class ThreadPoolTest {
                 System.out.println("test03");
             }
         });
-        ThreadPoolExecutor executor09 = ThreadPoolExecutorUtil.getAllThreadPool("test01");
+        ThreadPoolExecutor executor09 = ThreadPoolExecutorUtil.getAllThreadPool("pull");
         executor09.execute(new Runnable() {
             @Override
             public void run() {
@@ -80,7 +80,7 @@ public class ThreadPoolTest {
                 System.out.println("test03");
             }
         });
-        ThreadPoolExecutor executor06 = ThreadPoolExecutorUtil.getAllThreadPool("test01");
+        ThreadPoolExecutor executor06 = ThreadPoolExecutorUtil.getAllThreadPool("pull");
         executor06.execute(new Runnable() {
             @Override
             public void run() {
@@ -92,7 +92,7 @@ public class ThreadPoolTest {
                 System.out.println("test03");
             }
         });
-        ThreadPoolExecutor executor07 = ThreadPoolExecutorUtil.getAllThreadPool("test01");
+        ThreadPoolExecutor executor07 = ThreadPoolExecutorUtil.getAllThreadPool("pull");
         executor07.execute(new Runnable() {
             @Override
             public void run() {
