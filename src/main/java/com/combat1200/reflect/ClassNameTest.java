@@ -8,16 +8,16 @@ import java.util.Date;
  */
 public class ClassNameTest {
     public static void main(String[] args) {
-        String dateName = new Date().getClass().getName();
+        String dateName = Date.class.getName();
         System.out.println("非数组引用类型的名称：" + dateName);
 
         String byteName = byte.class.getName();
         System.out.println("基本类型的名称：" + byteName);
 
-        String oneDimensionArray = new Date[4].getClass().getName();
+        String oneDimensionArray = Date[].class.getName();
         System.out.println("一维引用类型数组：" + oneDimensionArray);
 
-        String twoDimensionArray = new Date[4][4].getClass().getName();
+        String twoDimensionArray = Date[][].class.getName();
         System.out.println("一维引用类型数组：" + twoDimensionArray);
     }
 }

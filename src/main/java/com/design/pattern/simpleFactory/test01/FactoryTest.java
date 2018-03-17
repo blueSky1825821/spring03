@@ -1,4 +1,4 @@
-package com.design.pattern.simpleFactory;
+package com.design.pattern.simpleFactory.test01;
 
 /**
  * Created by wm on 17-8-12.

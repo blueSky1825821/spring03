@@ -136,18 +136,15 @@ public class TowThread {
         }).start();
         for (char threadName = 'A'; threadName <= 'C'; threadName++) {
             final String tN = String.valueOf(threadName);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println(tN + "is working");
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println(tN + "finished");
-                    countDownLatch.countDown();
+            new Thread(() -> {
+                System.out.println(tN + "is working");
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+                System.out.println(tN + "finished");
+                countDownLatch.countDown();
             }).start();
         }
     }
